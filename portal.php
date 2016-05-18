@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Previcrim</title>
+    <title>Prevcrim</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -33,15 +33,15 @@
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"></strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                             </span> <span class="text-muted text-xs block">USER <b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="profile.html">Perfil</a></li>
                                 <li class="divider"></li>
                                 <li><a href="login.html">Cerrar Sesion</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
-                            PreviCrim
+                            PrevCrim
                         </div>
                     </li>
                     <li class="active">
