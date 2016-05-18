@@ -129,7 +129,7 @@
 
 
                 <li>
-                    <a href="login.html">
+                    <a href="index.php">
                         <i class="fa fa-sign-out"></i> Cerrar Sesión
                     </a>
                 </li>
