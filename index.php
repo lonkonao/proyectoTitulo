@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Login</title>
+    <title>PREVCRIM | Login</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -22,11 +22,11 @@
         <div>
             <div>
 
-                <h1 class="logo-name">IN+</h1>
+                <h1 class="logo-name">PREVCRIM</h1>
 
             </div>
-            <h3>Welcome to IN+</h3>
-            <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+            <h3>Bienvenido a PREVCRIM</h3>
+            <p>Algo debo poner aqui 
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>Login in. To see it in action.</p>
