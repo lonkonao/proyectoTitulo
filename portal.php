@@ -200,7 +200,7 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.success('Responsive Admin Theme', 'HOLA PACO');
+                toastr.success('HA SIDO IDENTIFICADO COMO @INSTITUCION', 'HOLA USUARIO');
 
             }, 1300);
 
