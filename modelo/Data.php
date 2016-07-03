@@ -108,7 +108,7 @@ class Data {
             echo" <td>" . $row[2] . "</td>";
             echo" <td>" . $row[3] . "</td>";
             echo" <td>" . $row[4] . "</td>";
-			echo" <td>" . $row[5] . "</td>";
+            echo" <td>" . $row[5] . "</td>";
             echo" <td>";
             echo"<div class='btn-group' role='group'>";
             echo" <button type = 'button' class = 'btn btn-danger dropdown-toggle' data-toggle = 'dropdown' aria-haspopup = 'true' aria-expanded = 'false'>";
@@ -116,8 +116,8 @@ class Data {
             echo" <span class = 'caret'></span>";
             echo" </button>";
             echo " <ul class = 'dropdown-menu' role = 'menu'>";
-            echo " <li><a href='instituciones.php?id=" . $row[0] . "&nombre=" . $row[1] ."'> Editar Usuario</a></li>";
-            echo " <li><a onclick = Eliminar('$row[0]')> Eliminar</a></li>";
+            echo " <li><a href='instituciones.php?usuario=" . $row[0] . "&rut=" . $row[1] ."&hab=" . $row[2] ."&es=" . $row[3] ."&esta=" . $row[4] ."&institu=" . $row[5] ."'> Editar Usuario</a></li>";
+            echo " <li><a onclick = Eliminar('$row[1]')> Eliminar</a></li>";
             echo " </ul>";
             echo " </div>";
             echo"</td>";
