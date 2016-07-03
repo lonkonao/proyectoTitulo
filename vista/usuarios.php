@@ -316,21 +316,41 @@
         <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
         <script src="../js/plugins/dataTables/dataTables.responsive.js"></script>
         <script src="../js/plugins/dataTables/dataTables.tableTools.min.js"></script>
-        
+
         <script>
-        $(document).ready(function() {
-            $('.dataTables-example').dataTable({
-                responsive: true,
-                "dom": 'T<"clear">lfrtip',
-                "tableTools": {
-                    "sSwfPath": "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
-                }
+            $(document).ready(function () {
+                $('.dataTables-example').dataTable({
+//                    responsive: true,
+//                    "dom": 'T<"clear">lfrtip',
+//                    "tableTools": {
+//                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+//                    },
+                    language: {
+                        "sProcessing": "Procesando...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Buscar:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        }
+                   
+
+                    }
+
+                });
             });
-
-        });
-
-      
-    </script>
+        </script>
 
         <!-- Flot -->
         <script src="../js/plugins/flot/jquery.flot.js"></script>
