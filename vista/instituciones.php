@@ -8,17 +8,17 @@
 
     <title>Prevcrim</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="../js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
 </head>
 
@@ -29,7 +29,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" src="../img/profile_small.jpg" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"></strong>
@@ -44,19 +44,19 @@
                             PrevCrim
                         </div>
                     </li>
-                    <li class="active">
-                        <a href="portal.php"><i class="fa fa-home"></i> <span class="nav-label">Portal</span> <span class="fa arrow"></span></a>
+                    <li>
+                        <a href="../portal.php"><i class="fa fa-home"></i> <span class="nav-label">Portal</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="portal.php"><i class="fa fa-home"></i>Inicio</a></li>
+                            <li><a href="../portal.php"><i class="fa fa-home"></i>Inicio</a></li>
                              <li ><a href="#"><i class="fa fa-line-chart"></i>Estadisticas Portal</a></li>
                            
                         </ul>
                     </li>
-                    <li> 
+                    <li class="active"> 
                     <a href="#"><em class="fa fa-cog"></em> <span class="nav-label">Administracion Portal</span> <span class="fa arrow"></span></a> 
                     <ul class="nav nav-second-level">
-                            <li><a href="vista/instituciones.php"><i class="fa fa-university"></i> Instituciones</a></li>
-                             <li><a href="vista/usuarios.php"><i class="fa fa-user"></i> Usuarios</a></li>
+                            <li class="active"><a href="#"><i class="fa fa-university"></i> Instituciones</a></li>
+                             <li><a href="usuarios.php"><i class="fa fa-user"></i> Usuarios</a></li>
                              <li><a href="#"><i class="fa fa-users"></i> Estamentos</a></li>
                            
                         </ul>
@@ -167,182 +167,148 @@
             <!-- main body   -->
        
         <!--   </div> -->
+         <div class="wrapper wrapper-content animated fadeInDown">
+<div class="row">
+                <div class="col-lg-10">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Administracion de <small> Instituciónes</small></h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                                                
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <?php
+							if (isset($_GET['id'])) {
+							echo"<form method='post' action='../controlador/ControEditarInstituciones.php' class='form-horizontal'>";
+							echo"<div class='form-group'><label class='col-sm-2 control-label'>ID</label>";
+                            echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtId' value='".$_GET['id']."' readonly> <span class='help-block m-b-none'>Codigo Interno No se Puede Modificar</span>";
+                            echo"</div>";
+                            echo"</div>";
+                            echo"<div class='hr-line-dashed'></div>";
+                            echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombre </label>";
+                            echo"<div class='col-sm-10'><input type='text' class='form-control' required value='".$_GET['nombre']."' name='txtNombre'> <span class='help-block m-b-none'>Ingrese el nombre de la Institución</span>";
+                            echo"</div>";
+                            echo"</div>";
+                            echo"<div class='hr-line-dashed'></div>";
+                            echo"<div class='form-group'>";
+                            echo"<div class='col-sm-4 col-sm-offset-2 col-md-offset-5'>";
+                            echo"<button class='btn btn-white' type='submit'>Cancelar</button>";
+                            echo"<button class='btn btn-primary' type='submit'>Guardar</button>";
+                            echo"</div>";
+                            echo"</div>";
+                            echo"</form>";
+							}
+							
+							
+							else
+							
+							
+							{
+							echo"<form method='post' action='../controlador/ControAgregarInstituciones.php' class='form-horizontal'>";
+                            echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombre </label>";
+                            echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtNombre' required> <span class='help-block m-b-none'>Ingrese el nombre de la Institución</span>";
+                            echo"</div>";
+                            echo"</div>";
+                            echo"<div class='hr-line-dashed'></div>";
+                            echo"<div class='form-group'>";
+                            echo"<div class='col-sm-4 col-sm-offset-2 col-md-offset-5'>";
+                            echo"<button class='btn btn-white' type='submit'>Cancelar</button>";
+                            echo"<button class='btn btn-primary' type='submit'>Guardar</button>";
+                            echo"</div>";
+                            echo"</div>";
+                            echo"</form>";	
+							}
+
+							
+							
+							
+							
+							?>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="col-lg-10">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Lista de Instituciones </h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+							<?php
+                            require_once('../modelo/Data.php');
+							
+							$d= new Data();
+							
+							$d->listaInstituciones();
+							
+							
+							
+							?>
+
+	
+                      </div>
+                </div>
+            </div>
+             </div>
+       </div>
+       
         </div>
+      
     </div>
+    
+    
+    <script src="../js/ajax.js"></script>
 
     <!-- Mainly scripts -->
-    <script src="js/jquery-2.1.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Flot -->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.pie.js"></script>
 
     <!-- Peity -->
-    <script src="js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="js/demo/peity-demo.js"></script>
+    <script src="../js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="../js/demo/peity-demo.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
+    <script src="../js/inspinia.js"></script>
+    <script src="../js/plugins/pace/pace.min.js"></script>
 
     <!-- jQuery UI -->
-    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- GITTER -->
-    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
+    <script src="../js/plugins/gritter/jquery.gritter.min.js"></script>
 
     <!-- Sparkline -->
-    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
     <!-- Sparkline demo data  -->
-    <script src="js/demo/sparkline-demo.js"></script>
+    <script src="../js/demo/sparkline-demo.js"></script>
 
     <!-- ChartJS-->
-    <script src="js/plugins/chartJs/Chart.min.js"></script>
+    <script src="../js/plugins/chartJs/Chart.min.js"></script>
 
     <!-- Toastr -->
-    <script src="js/plugins/toastr/toastr.min.js"></script>
+    <script src="../js/plugins/toastr/toastr.min.js"></script>
 
 
-    <script>
-        $(document).ready(function() {
-            setTimeout(function() {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: true,
-                    showMethod: 'slideDown',
-                    timeOut: 4000
-                };
-                toastr.success('HA SIDO IDENTIFICADO COMO @INSTITUCION', 'HOLA USUARIO');
-
-            }, 1300);
-
-
-            var data1 = [
-                [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
-            ];
-            var data2 = [
-                [0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]
-            ];
-            $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
-                data1, data2
-            ],
-                    {
-                        series: {
-                            lines: {
-                                show: false,
-                                fill: true
-                            },
-                            splines: {
-                                show: true,
-                                tension: 0.4,
-                                lineWidth: 1,
-                                fill: 0.4
-                            },
-                            points: {
-                                radius: 0,
-                                show: true
-                            },
-                            shadowSize: 2
-                        },
-                        grid: {
-                            hoverable: true,
-                            clickable: true,
-                            tickColor: "#d5d5d5",
-                            borderWidth: 1,
-                            color: '#d5d5d5'
-                        },
-                        colors: ["#1ab394", "#464f88"],
-                        xaxis:{
-                        },
-                        yaxis: {
-                            ticks: 4
-                        },
-                        tooltip: false
-                    }
-            );
-
-            var doughnutData = [
-                {
-                    value: 300,
-                    color: "#a3e1d4",
-                    highlight: "#1ab394",
-                    label: "App"
-                },
-                {
-                    value: 50,
-                    color: "#dedede",
-                    highlight: "#1ab394",
-                    label: "Software"
-                },
-                {
-                    value: 100,
-                    color: "#b5b8cf",
-                    highlight: "#1ab394",
-                    label: "Laptop"
-                }
-            ];
-
-            var doughnutOptions = {
-                segmentShowStroke: true,
-                segmentStrokeColor: "#fff",
-                segmentStrokeWidth: 2,
-                percentageInnerCutout: 45, // This is 0 for Pie charts
-                animationSteps: 100,
-                animationEasing: "easeOutBounce",
-                animateRotate: true,
-                animateScale: false,
-            };
-
-            var ctx = document.getElementById("doughnutChart").getContext("2d");
-            var DoughnutChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
-
-            var polarData = [
-                {
-                    value: 300,
-                    color: "#a3e1d4",
-                    highlight: "#1ab394",
-                    label: "App"
-                },
-                {
-                    value: 140,
-                    color: "#dedede",
-                    highlight: "#1ab394",
-                    label: "Software"
-                },
-                {
-                    value: 200,
-                    color: "#b5b8cf",
-                    highlight: "#1ab394",
-                    label: "Laptop"
-                }
-            ];
-
-            var polarOptions = {
-                scaleShowLabelBackdrop: true,
-                scaleBackdropColor: "rgba(255,255,255,0.75)",
-                scaleBeginAtZero: true,
-                scaleBackdropPaddingY: 1,
-                scaleBackdropPaddingX: 1,
-                scaleShowLine: true,
-                segmentShowStroke: true,
-                segmentStrokeColor: "#fff",
-                segmentStrokeWidth: 2,
-                animationSteps: 100,
-                animationEasing: "easeOutBounce",
-                animateRotate: true,
-                animateScale: false,
-            };
-            var ctx = document.getElementById("polarChart").getContext("2d");
-            var Polarchart = new Chart(ctx).PolarArea(polarData, polarOptions);
-
-        });
-    </script>
+    
 </body>
 </html>
