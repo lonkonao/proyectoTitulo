@@ -88,9 +88,7 @@ class Data {
         $sql = "select u.user,u.rut,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i  where u.institucion = i.id and u.estamento = es.id and u.estado = e.id ";
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-       
-        
-        echo" <table id='datatables' class='table table-striped table-bordered table-hover dataTables-example'>";
+        echo" <table class='table table-striped table-bordered table-hover dataTables-example'>";
         echo" <thead>";
         echo" <tr>";
         echo" <th>Usuario</th>";
@@ -99,7 +97,7 @@ class Data {
         echo" <th>Estado</th>";
         echo" <th>Estamento</th>";
         echo" <th>Institucion</th>";
-		echo" <th>Acciones</th>";
+	echo" <th>Acciones</th>";
         echo" </tr>";
         echo" </thead>";
         echo" <tbody>";
