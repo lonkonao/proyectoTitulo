@@ -230,9 +230,36 @@ class Data {
         }
         echo "</select>";
     }
+    
+    public function comboEstadoFiltro($filtro) {
+        $sql = "select id, nombre from us_estado where nombre ='".$filtro."'";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='region' name='estado' class='form-control m-b' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+        }
+        echo "</select>";
+    }
+    
 	
 	public function comboEstamentos() {
         $sql = "select id, nombre from us_estamento";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='region' name='estamento' class='form-control m-b' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+        }
+        echo "</select>";
+    }
+    
+    	public function comboEstamentosFiltro($filtro) {
+        $sql = "select id, nombre from us_estamento where nombre ='".$filtro."'";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
@@ -256,6 +283,20 @@ class Data {
         }
         echo "</select>";
     }
+    
+    	public function comboInstitucionFiltro($filtro) {
+        $sql = "select id, nombre from us_institucion where nombre ='".$filtro."'";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='region' name='institucion' class='form-control m-b' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+        }
+        echo "</select>";
+    }
+	
 	
 
 	

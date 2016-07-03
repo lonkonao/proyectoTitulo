@@ -189,18 +189,53 @@
                                     <?php
                                     require_once('../modelo/Data.php');
                                     $d = new Data();
-                                    if (isset($_GET['id'])) {
-                                        echo"<form method='post' action='../controlador/ControEditarInstituciones.php' class='form-horizontal'>";
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>ID</label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtId' value='" . $_GET['id'] . "' readonly> <span class='help-block m-b-none'>Codigo Interno No se Puede Modificar</span>";
+                                    if (isset($_GET['usuario'])) {
+                                       echo"<form method='post' action='../controlador/ControEditarUsuarios.php' class='form-horizontal'>";
+
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Usuario </label>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' value='".$_GET['usuario']."' name='txtUser' required> <span class='help-block m-b-none'>Usado para el inicio de session</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombre </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' required value='" . $_GET['nombre'] . "' name='txtNombre'> <span class='help-block m-b-none'>Ingrese el nombre de la Institución</span>";
+
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>R.U.N. </label>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtRut' value='".$_GET['rut']."' data-mask='99.999.999-*' required placeholder='12.345.678-9'> <span class='help-block m-b-none'>R.U.N del usuario</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
+
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Estado</label>";
+                                        echo"<div class='col-sm-10'>";
+
+                                        $d->comboEstadoFiltro($_GET['es']);
+
+                                        echo"<span class='help-block m-b-none'>Estado en el Sistema</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+                                        echo"<div class='hr-line-dashed'></div>";
+
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Estamento</label>";
+                                        echo"<div class='col-sm-10'>";
+
+                                        $d->comboEstamentosFiltro($_GET['esta']);
+
+                                        echo"<span class='help-block m-b-none'>Tipo Usuario</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+
+                                        echo"<div class='hr-line-dashed'></div>";
+
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Institucion</label>";
+                                        echo"<div class='col-sm-10'>";
+
+                                        $d->comboInstitucionFiltro($_GET['institu']);
+
+                                        echo"<span class='help-block m-b-none'>Institucion en el Sistema</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+                                        echo"<div class='hr-line-dashed'></div>";
+
+
                                         echo"<div class='form-group'>";
                                         echo"<div class='col-sm-4 col-sm-offset-2 col-md-offset-5'>";
                                         echo"<button class='btn btn-white' type='submit'>Cancelar</button>";
@@ -208,6 +243,7 @@
                                         echo"</div>";
                                         echo"</div>";
                                         echo"</form>";
+                            
                                     } else {
                                         echo"<form method='post' action='../controlador/ControAgregarUsuarios.php' class='form-horizontal'>";
 
