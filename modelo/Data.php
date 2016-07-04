@@ -85,7 +85,7 @@ class Data {
     }
 
     public function listaUsuarios() {
-        $sql = "select u.user,u.rut,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i  where u.institucion = i.id and u.estamento = es.id and u.estado = e.id ";
+        $sql = "select u.user,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i  where u.institucion = i.id and u.estamento = es.id and u.estado = e.id ";
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
         echo" <table class='table table-striped table-bordered table-hover dataTables-example'>";
@@ -93,6 +93,8 @@ class Data {
         echo" <tr>";
         echo" <th>Usuario</th>";
         echo" <th>R.U.N</th>";
+        echo" <th>Nombres</th>";
+        echo" <th>Apellidos</th>";
         echo" <th>Habilitacion</th>";
         echo" <th>Estado</th>";
         echo" <th>Estamento</th>";
@@ -109,6 +111,8 @@ class Data {
             echo" <td>" . $row[3] . "</td>";
             echo" <td>" . $row[4] . "</td>";
             echo" <td>" . $row[5] . "</td>";
+            echo" <td>" . $row[6] . "</td>";
+            echo" <td>" . $row[7] . "</td>";
             echo" <td>";
             echo"<div class='btn-group' role='group'>";
             echo" <button type = 'button' class = 'btn btn-danger dropdown-toggle' data-toggle = 'dropdown' aria-haspopup = 'true' aria-expanded = 'false'>";
@@ -116,7 +120,7 @@ class Data {
             echo" <span class = 'caret'></span>";
             echo" </button>";
             echo " <ul class = 'dropdown-menu' role = 'menu'>";
-            echo " <li><a href='usuarios.php?usuario=" . $row[0] . "&rut=" . $row[1] ."&hab=" . $row[2] ."&es=" . $row[3] ."&esta=" . $row[4] ."&institu=" . $row[5] ."'> Editar Usuario</a></li>";
+            echo " <li><a href='usuarios.php?usuario=" . $row[0] . "&rut=" . $row[1] ."&nom=" . $row[2] ."&ape=" . $row[3] ."&hab=" . $row[4] ."&es=" . $row[5] ."&esta=" . $row[6] ."&institu=" . $row[7] ."'> Editar Usuario</a></li>";
             echo " <li><a onclick = Eliminar('$row[1]')> Eliminar</a></li>";
             echo " </ul>";
             echo " </div>";
@@ -174,8 +178,8 @@ class Data {
         }
     }
 
-    public function insertUsuario($nombre, $pass, $rut, $habilitacion, $estado, $estamento, $institucion) {
-        $sql = "insert into us_perfil values ('" . $nombre . "','" . $pass . "','" . $rut . "','" . $habilitacion . "','" . $estado . "','" . $estamento . "','" . $institucion . "')";
+    public function insertUsuario($user, $pass, $rut,$nombre,$apellido ,$habilitacion, $estado, $estamento, $institucion) {
+        $sql = "insert into us_perfil values ('" . $user . "','" . $pass . "','" . $rut . "','" . $nombre . "','" . $apellido . "','" . $habilitacion . "','" . $estado . "','" . $estamento . "','" . $institucion . "')";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
             echo 'alert("Error, No se Realizo la accion");location.href="../vista/usuarios.php?e=1"';
@@ -232,14 +236,17 @@ class Data {
     }
     
     public function comboEstadoFiltro($filtro) {
-        $sql = "select id, nombre from us_estado where nombre ='".$filtro."'";
+        $sql = "select id, nombre from us_estado";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
         echo "<select id='region' name='estado' class='form-control m-b' >";
         while ($resultado = $res->fetch_array()) {
-
-            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+            if ($filtro == $resultado[1]) {
+                echo "<option value='" . $resultado[0] . "' selected> " . $resultado[1] . "</option>";
+            } else {
+                echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+            }
         }
         echo "</select>";
     }
@@ -259,14 +266,19 @@ class Data {
     }
     
     	public function comboEstamentosFiltro($filtro) {
-        $sql = "select id, nombre from us_estamento where nombre ='".$filtro."'";
+        $sql = "select id, nombre from us_estamento";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
         echo "<select id='region' name='estamento' class='form-control m-b' >";
         while ($resultado = $res->fetch_array()) {
+            if ($filtro == $resultado[1]) {
+                echo "<option value='" . $resultado[0] . "' selected> " . $resultado[1] . "</option>";
+            } else {
+                echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+            }
 
-            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+            
         }
         echo "</select>";
     }
@@ -285,14 +297,17 @@ class Data {
     }
     
     	public function comboInstitucionFiltro($filtro) {
-        $sql = "select id, nombre from us_institucion where nombre ='".$filtro."'";
+        $sql = "select id, nombre from us_institucion ";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
         echo "<select id='region' name='institucion' class='form-control m-b' disabled>";
         while ($resultado = $res->fetch_array()) {
-
-            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+            if ($filtro == $resultado[1]) {
+                echo "<option value='" . $resultado[0] . "' selected> " . $resultado[1] . "</option>";
+            } else {
+                echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+            }
         }
         echo "</select>";
     }
@@ -361,14 +376,14 @@ class Data {
     }
     
         public function upUsuarios($user, $estado,$estamento,$rut) {
-        $sql = "UPDATE us_institucion set user='" . $user . "', estado='" . $estado . "', estamento='" . $estamento . "' where rut='" . $rut . "'";
+        $sql = "UPDATE us_perfil set user='" . $user . "', estado='" . $estado . "', estamento='" . $estamento . "' where rut='" . $rut . "'";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
             echo 'alert("Error, No se Realizo la accion");location.href="../vista/usuarios.php?e=1"';
             echo '</script>';
         } else {
             echo '<script language="javascript">';
-            echo 'alert("El Usuario (' . $nombre . ') Ha Sido Actualizado Correctamente"); location.href="../vista/usuarios.php"';
+            echo 'alert("El Usuario (' . $user . ') Ha Sido Actualizado Correctamente"); location.href="../vista/usuarios.php"';
             echo '</script>';
         }
     }

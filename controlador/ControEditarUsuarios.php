@@ -7,7 +7,7 @@ $nombre=$_POST['txtUser'];
 $rut=$_POST['txtRut'];
 $estado=$_POST['estado'];
 $estamento=$_POST['estamento'];
-$institucion=$_POST['institucion'];
+
 
 $habilitacion = date('Y-m-d');
 
