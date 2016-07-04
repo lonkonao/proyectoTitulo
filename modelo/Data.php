@@ -388,19 +388,21 @@ class Data {
             echo '</script>';
         }
     }
-
-    public function upUser($id, $user, $per, $es, $ed, $el, $cen) {
-        $sql = "UPDATE usuario set usuario='" . $user . "', permiso='" . $per . "', estado='" . $es . "', editar='" . $ed . "', eliminar='" . $el . "', centro='" . $cen . "' where id='" . $id . "'";
+    
+          public function upPassUsuarios($pass,$rut) {
+        $sql = "UPDATE us_perfil set pswd='" . $pass . "' where rut='" . $rut . "'";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
-            echo 'alert("Error, No se Realizo la accion");location.href="../vista/portal.php"';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/usuarios.php?e=1"';
             echo '</script>';
         } else {
             echo '<script language="javascript">';
-            echo 'alert("La Institución (' . $user . ') Ha Sido Actualizada Correctamente"); location.href="../vista/portal.php"';
+            echo 'alert("El Usuario (' . $user . ') Ha Sido Actualizado Correctamente"); location.href="../vista/usuarios.php"';
             echo '</script>';
         }
     }
+
+  
 
     //
     //    

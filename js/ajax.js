@@ -66,7 +66,7 @@ function PassUser(id, usuario, pass1, pass2) {
 
     ajax = objetoAjax();
     if (pass1 == pass2) {
-        ajax.open("POST", "../../controlador/ControPassUser.php", true);
+        ajax.open("POST", "../../controlador/ControEditarPassUser.php", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 alert('Los datos fueron guardados con exito!');

@@ -11,5 +11,6 @@ if ($id == 1) {
     echo 'alert("No Puedes Editar Al Super"); location.href="../vista/portal.php"';
     echo '</script>';
 } else {
-$d->upPassUser($id, $pass1);
+
+    $d->upPassUsuarios($pass1, $rut);
 }
