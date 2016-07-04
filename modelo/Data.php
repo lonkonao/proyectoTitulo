@@ -429,18 +429,19 @@ class Data {
             echo '</script>';
         }
     }
-
-    public function desasociarFunEqu($id) {
-        $sql = "DELETE FROM funcionarioPc WHERE equipo = '" . $id . "'";
+    
+    public function borrarUsuario($rut) {
+        $sql = "DELETE FROM us_perfil WHERE rut = '" . $rut . "'";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
-            echo 'alert("Error, No se Realizo la accion");location.href="../registrar.php"';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/usuario.php?e=1"';
             echo '</script>';
         } else {
             echo '<script language="javascript">';
-            echo 'alert("Eliminado Correctamente");location.href="../registrar.php"';
+            echo 'alert("Eliminado Correctamente"); location.href="../vista/usuario.php"';
             echo '</script>';
         }
     }
 
+    
 }
