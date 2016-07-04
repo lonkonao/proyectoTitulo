@@ -21,10 +21,10 @@ function objetoAjax() {
 function Eliminar(id) {
     if (confirm("En realidad desea eliminar esta Institucion?")) {
         ajax = objetoAjax();
-        ajax.open("POST", "../controlador/controEliminarInstituciones.php", true);
+        ajax.open("POST", "../controlador/controEliminarUsuario.php", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
-                alert('El registro fue eliminado con exito!');
+                alert('El Usuario fue eliminado con exito!');
                 window.location.reload(true);
             }
         }

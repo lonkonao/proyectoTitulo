@@ -3,17 +3,10 @@ require_once('../modelo/Data.php');
 
 $d=new Data();
 
-$nombre=$_POST['txtUser'];
-$rut=$_POST['txtRut'];
-$estado=$_POST['estado'];
-$estamento=$_POST['estamento'];
+$rut=$_POST['id'];
 
+$d->borrarUsuario($rut);
 
-$habilitacion = date('Y-m-d');
-
-
-
-$d->upUsuarios($nombre, $estado, $estamento, $rut);
 
 
 
