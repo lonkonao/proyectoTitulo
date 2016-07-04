@@ -34,6 +34,8 @@
         <link href="../css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
         <link href="../css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
 
+        <link href="../css/plugins/steps/jquery.steps.css" rel="stylesheet">
+
 
     </head>
 
@@ -132,7 +134,7 @@
 
 
                                 break;
-                                case "Operador":
+                            case "Operador":
 
                                 echo"<li class='active'>";
                                 echo"    <a href='portal.php'><i class='fa fa-home'></i> <span class='nav-label'>Portal</span> <span class='fa arrow'></span></a>";
@@ -250,364 +252,310 @@
                 <!--   </div> -->
 
 
-                <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content animated flipInY">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <i class="fa fa-user-secret modal-icon"></i>
-                                <h4 class="modal-title" style="font-size: 20px;">Cambio De Contraseña</h4>
-                                <small class="font-bold">Restablecimiento de Contraseña</small>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <div class="ibox-title">
+                                <h5>Registro de Delincuentes</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+
+                                </div>
                             </div>
-                            <div class="modal-body">
+                            <div class="ibox-content">
+                                <h2>
+                                    Ingreso de Delincuentes
+                                </h2>
+                                <p>
+                                    Siga los pasos para registrar a un delincuente
+                                </p>
 
-                                <form role="form" action="" name="frmPass" onsubmit="PassUser(id, usuario, pass1, pass2); return false">
+                                <form id="form" action="#" class="wizard-big">
+                                    <h1>Antecedentes Basicos</h1>
+                                    <fieldset>
+                                        <h2>Antecedentes</h2>
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="form-group">
+                                                    <label>R.U.N *</label>
+                                                    <input  name="txtRut" type="text" data-mask="99.999.999-*" placeholder="12.345.678-9" class="form-control required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nombres *</label>
+                                                    <input  name="txtNombre" type="text" class="form-control required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Apellido Paterno *</label>
+                                                    <input name="txtApellidoP" type="text" class="form-control required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Apellido Materno *</label>
+                                                    <input name="txtApellidoM" type="text" class="form-control required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Apodo</label>
+                                                    <input name="txtApodo" type="text" class="form-control ">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="text-center">
+                                                    <div style="margin-top: 20px">
+                                                        <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div class='form-group'><span class='help-block m-b-none'>R.U.N</span> 
-                                        <input type='text' class='form-control' name='id'>
-                                    </div>
-                                    <div class='hr-line-dashed'></div>
+                                    </fieldset>
+                                    <h1>Perfil</h1>
+                                    <fieldset>
+                                        <h2>Perfil Información</h2>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Domicilio Particular *</label>
+                                                    <input name="txtDomicilio" type="text" class="form-control required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Last name *</label>
+                                                    <?php
+                                                    require_once '../modelo/Data.php';
+                                                    $d = new Data();
 
-                                    <div class='form-group'><span class='help-block m-b-none'>Nombre del Usuario</span>
-                                        <input type='text' class='form-control' name='usuario'> 
-                                    </div>
-                                    <div class='hr-line-dashed'></div>
+                                                    $d->comboRegion();
+                                                    ?>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Email *</label>
+                                                    <input id="email" name="email" type="text" class="form-control required email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Address *</label>
+                                                    <input id="address" name="address" type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
 
-                                    <div class='form-group'><span class='help-block m-b-none'>Nueva Contraseña </span>
-                                        <input type='password' class='form-control' name='pass1'> 
-                                    </div>
-                                    <div class='hr-line-dashed'></div>
+                                    <h1>Warning</h1>
+                                    <fieldset>
+                                        <div class="text-center" style="margin-top: 120px">
+                                            <h2>You did it Man :-)</h2>
+                                        </div>
+                                    </fieldset>
 
-                                    <div class='form-group'><span class='help-block m-b-none'>Confirmar Contraseña</span>
-                                        <input type='password' class='form-control' name='pass2'> 
-                                    </div>
-                                    <div class='hr-line-dashed'></div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                                        <button type="submit" class="btn btn-primary">Cambiar</button>
-                                    </div>
-
-
-
+                                    <h1>Finish</h1>
+                                    <fieldset>
+                                        <h2>Terms and Conditions</h2>
+                                        <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+                                    </fieldset>
                                 </form>
-
                             </div>
                         </div>
                     </div>
+
                 </div>
-
-                <div class="wrapper wrapper-content animated fadeInDown">
-                    <div class="row">
-                        <div class="col-lg-10">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Administracion de <small> Usuarios</small></h5>
-                                    <div class="ibox-tools">
-                                        <a class="collapse-link">
-                                            <i class="fa fa-chevron-up"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                                <div class="ibox-content">
-                                    <?php
-                                    require_once('../modelo/Data.php');
-                                    $d = new Data();
-                                    if (isset($_GET['usuario'])) {
-                                        echo"<form method='post' action='../controlador/ControEditarUsuarios.php' class='form-horizontal'>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Usuario </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' value='" . $_GET['usuario'] . "' name='txtUser' required> <span class='help-block m-b-none'>Usado para el inicio de session</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>R.U.N. </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtRut' value='" . $_GET['rut'] . "' data-mask='99.999.999-*' required placeholder='12.345.678-9' readonly> <span class='help-block m-b-none'>R.U.N del usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombres </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtNombre' value='" . $_GET['nom'] . "'> <span class='help-block m-b-none'>Nombres del Usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Apellidos </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtApellido' value='" . $_GET['ape'] . "'> <span class='help-block m-b-none'>Apellidos del Usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Estado</label>";
-                                        echo"<div class='col-sm-10'>";
-
-                                        $d->comboEstadoFiltro($_GET['es']);
-
-                                        echo"<span class='help-block m-b-none'>Estado en el Sistema</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Estamento</label>";
-                                        echo"<div class='col-sm-10'>";
-
-                                        $d->comboEstamentosFiltro($_GET['esta']);
-
-                                        echo"<span class='help-block m-b-none'>Tipo Usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Institucion</label>";
-                                        echo"<div class='col-sm-10'>";
-
-                                        $d->comboInstitucionFiltro($_GET['institu']);
-
-                                        echo"<span class='help-block m-b-none'>Institucion en el Sistema</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-
-                                        echo"<div class='form-group'>";
-                                        echo"<div class='col-sm-4 col-sm-offset-2 col-md-offset-5'>";
-                                        echo"<button class='btn btn-white' type='submit'>Cancelar</button>";
-                                        echo"<button class='btn btn-primary' type='submit'>Guardar</button>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"</form>";
-                                    } else {
-                                        echo"<form method='post' action='../controlador/ControAgregarUsuarios.php' class='form-horizontal'>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Usuario </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtUser' required> <span class='help-block m-b-none'>Usado para el inicio de session</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Contraseña </label>";
-                                        echo"<div class='col-sm-10'><input type='password' class='form-control' name='txtPass' required> <span class='help-block m-b-none'>Esta podra ser cambiada por el usuario en su portal</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>R.U.N. </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtRut' data-mask='99.999.999-*' required placeholder='12.345.678-9'> <span class='help-block m-b-none'>R.U.N del usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombres </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtNombre' required> <span class='help-block m-b-none'>Nombres del Usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Apellidos </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtApellidos' required> <span class='help-block m-b-none'>Apellidos del Usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Estado</label>";
-                                        echo"<div class='col-sm-10'>";
-
-                                        $d->comboEstado();
-
-                                        echo"<span class='help-block m-b-none'>Estado en el Sistema</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Estamento</label>";
-                                        echo"<div class='col-sm-10'>";
-                                        switch ($estamentoUsuario) {
-                                            case "Administrador General":
-                                                $d->comboEstado();
-
-
-                                                break;
-
-                                            default:
-                                                $d->comboEstamentosSinAdmin();
-                                                break;
-                                        }
-
-                                        echo"<span class='help-block m-b-none'>Tipo Usuario</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Institucion</label>";
-                                        echo"<div class='col-sm-10'>";
-
-                                        switch ($estamentoUsuario) {
-                                            case "Administrador General":
-                                                $d->comboInstitucion();
-
-
-                                                break;
-
-                                            default:
-                                                $d->comboInstitucionFiltro($institucionUsuario);
-                                                break;
-                                        }
-
-
-                                        echo"<span class='help-block m-b-none'>Institucion en el Sistema</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-
-                                        echo"<div class='form-group'>";
-                                        echo"<div class='col-sm-4 col-sm-offset-2 col-md-offset-5'>";
-                                        echo"<button class='btn btn-white' type='submit'>Cancelar</button>";
-                                        echo"<button class='btn btn-primary' type='submit'>Guardar</button>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"</form>";
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-10">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Lista de Usuarios </h5>
-                                    <div class="ibox-tools">
-                                        <a class="collapse-link">
-                                            <i class="fa fa-chevron-up"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                                <div class="ibox-content">
-                                    <?php
-                                    $d->listaUsuarios($estamentoUsuario);
-                                    ?>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+
 
         </div>
 
+    </div>
 
 
 
-        <script src="../js/ajax.js"></script>
 
-        <!-- Mainly scripts -->
-        <script src="../js/jquery-2.1.1.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-        <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../js/ajax.js"></script>
 
-        <!-- Data Tables -->
-        <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
-        <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
-        <script src="../js/plugins/dataTables/dataTables.responsive.js"></script>
-        <script src="../js/plugins/dataTables/dataTables.tableTools.min.js"></script>
-        <script type="text/javascript">
-                                    function Pass(id, usuario) {
-                                        document.frmPass.id.value = id;
-                                        document.frmPass.id.disabled = true;
-                                        document.frmPass.usuario.value = usuario;
-                                        document.frmPass.usuario.disabled = true;
-                                        document.frmPass.pass1.value = '';
-                                        document.frmPass.pass2.value = '';
-                                        $('#myModal').modal('show');
-                                    }
-        </script>
+    <!-- Mainly scripts -->
+    <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-        <script>
-            $(document).ready(function () {
-                $('.dataTables-example').dataTable({
+    <!-- Data Tables -->
+    <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="../js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="../js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+    <!-- Steps -->
+    <script src="../js/plugins/staps/jquery.steps.min.js"></script>
+
+    <!-- Jquery Validate -->
+    <script src="../js/plugins/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#region').change(function () {
+                var id = $('#region').val();
+                $('#comunas').load('ajax.php?id=' + id);
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex)
+                {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex)
+                    {
+                        return true;
+                    }
+
+                    // Forbid suppressing "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age").val()) < 18)
+                    {
+                        return false;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex)
+                    {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex)
+                {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age").val()) >= 18)
+                    {
+                        $(this).steps("next");
+                    }
+
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3)
+                    {
+                        $(this).steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex)
+                {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex)
+                {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element)
+                {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable({
 //                    responsive: true,
 //                    "dom": 'T<"clear">lfrtip',
 //                    "tableTools": {
 //                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
 //                    },
-                    language: {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "Ningún dato disponible en esta tabla",
-                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "Último",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        }
-
-
+                language: {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
                     }
 
-                });
+
+                }
+
             });
-        </script>
+        });
+    </script>
 
-        <!-- Flot -->
-        <script src="../js/plugins/flot/jquery.flot.js"></script>
-        <script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-        <script src="../js/plugins/flot/jquery.flot.spline.js"></script>
-        <script src="../js/plugins/flot/jquery.flot.resize.js"></script>
-        <script src="../js/plugins/flot/jquery.flot.pie.js"></script>
+    <!-- Flot -->
+    <script src="../js/plugins/flot/jquery.flot.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="../js/plugins/flot/jquery.flot.pie.js"></script>
 
-        <!-- Peity -->
-        <script src="../js/plugins/peity/jquery.peity.min.js"></script>
-        <script src="../js/demo/peity-demo.js"></script>
+    <!-- Peity -->
+    <script src="../js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="../js/demo/peity-demo.js"></script>
 
-        <!-- Custom and plugin javascript -->
-        <script src="../js/inspinia.js"></script>
-        <script src="../js/plugins/pace/pace.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="../js/inspinia.js"></script>
+    <script src="../js/plugins/pace/pace.min.js"></script>
 
-        <!-- jQuery UI -->
-        <script src="../js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="../js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-        <!-- GITTER -->
-        <script src="../js/plugins/gritter/jquery.gritter.min.js"></script>
+    <!-- GITTER -->
+    <script src="../js/plugins/gritter/jquery.gritter.min.js"></script>
 
-        <!-- Sparkline -->
-        <script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Sparkline -->
+    <script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
-        <!-- Sparkline demo data  -->
-        <script src="../js/demo/sparkline-demo.js"></script>
+    <!-- Sparkline demo data  -->
+    <script src="../js/demo/sparkline-demo.js"></script>
 
-        <!-- ChartJS-->
-        <script src="../js/plugins/chartJs/Chart.min.js"></script>
+    <!-- ChartJS-->
+    <script src="../js/plugins/chartJs/Chart.min.js"></script>
 
-        <!-- Toastr -->
-        <script src="../js/plugins/toastr/toastr.min.js"></script>
+    <!-- Toastr -->
+    <script src="../js/plugins/toastr/toastr.min.js"></script>
 
-        <!-- Input Mask-->
-        <script src="../js/plugins/jasny/jasny-bootstrap.min.js"></script>
+    <!-- Input Mask-->
+    <script src="../js/plugins/jasny/jasny-bootstrap.min.js"></script>
 
-        <!-- Switchery -->
-        <script src="../js/plugins/switchery/switchery.js"></script>
+    <!-- Switchery -->
+    <script src="../js/plugins/switchery/switchery.js"></script>
 
-        <script src="../js/ajax.js"></script>
+    <script src="../js/ajax.js"></script>
 
 
 
-    </body>
+</body>
 </html>

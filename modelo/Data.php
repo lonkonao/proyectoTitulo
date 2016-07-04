@@ -346,6 +346,20 @@ class Data {
         echo "</select>";
         echo "</div>";
     }
+    
+    public function comboRegion() {
+        $sql = "select codigo, nombre from regiones";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='region' name='region' class='form-control m-b' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+        }
+        echo "</select>";
+    }
+
 
     //    
     //     
