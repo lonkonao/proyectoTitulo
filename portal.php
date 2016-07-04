@@ -10,12 +10,6 @@
    $institucionUsuario= $_SESSION["instiUser"];
    $estadoUsuario= $_SESSION["estadoUser"];
    $estamentoUsuario= $_SESSION["estamUser"];
-    
-
-   
-   
-   
-   
    ?>
 
     <head>
@@ -228,6 +222,9 @@
 
 
         <script>
+            var institucion = "<?php echo $institucionUsuario; ?>";
+            var usuario = "<?php echo $userUsuario; ?>";
+            var estamento = "<?php echo $estamentoUsuario; ?>";
             $(document).ready(function () {
                 setTimeout(function () {
                     toastr.options = {
@@ -236,7 +233,7 @@
                         showMethod: 'slideDown',
                         timeOut: 4000
                     };
-                    toastr.success('HA SIDO IDENTIFICADO COMO @INSTITUCION', 'HOLA USUARIO');
+                    toastr.success('haz ingresado Como '+estamento+' De la Institucion '+institucion, 'Hola '+usuario);
 
                 }, 1300);
 

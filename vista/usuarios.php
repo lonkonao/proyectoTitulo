@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
-
+    <?php
+    include_once './controlador/ControSeguridad.php';
+    
+   $userUsuario= $_SESSION["nombreUser"];
+   $rutUsuario= $_SESSION["rutUser"];
+   $nombreUsuario=$_SESSION["nomUser"];
+   $apellidoUsuario= $_SESSION["apelliUser"];
+   $institucionUsuario= $_SESSION["instiUser"];
+   $estadoUsuario= $_SESSION["estadoUser"];
+   $estamentoUsuario= $_SESSION["estamUser"];
+   ?>
     <head>
 
         <meta charset="utf-8">

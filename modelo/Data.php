@@ -28,8 +28,10 @@ class Data {
 //    
 
     public function existeUsuario($usuario, $pass) {
-        $sql = "select * from us_perfil "
-                . "where user = '$usuario' and "
+        $sql = "select u.user,u.pswd,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre "
+                . "from us_perfil u,us_estado e,us_estamento es,us_institucion i  "
+                . "where u.institucion = i.id and u.estamento = es.id and u.estado = e.id "
+                . "and user = '$usuario' and "
                 . "pswd = '$pass'";
         $us = null;
         $res = $this->c->ejecutar($sql);
