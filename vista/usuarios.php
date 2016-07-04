@@ -172,6 +172,54 @@
                 <!-- main body   -->
 
                 <!--   </div> -->
+
+
+                <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content animated flipInY">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <i class="fa fa-user-secret modal-icon"></i>
+                                <h4 class="modal-title" style="font-size: 20px;">Cambio De Contraseña</h4>
+                                <small class="font-bold">Restablecimiento de Contraseña</small>
+                            </div>
+                            <div class="modal-body">
+
+                                <form role="form" action="" name="frmPass" onsubmit="PassUser(id, usuario, pass1, pass2); return false">
+                                    
+                                    <div class='form-group'><span class='help-block m-b-none'>R.U.N</span> 
+                                        <input type='text' class='form-control' name='id'>
+                                    </div>
+                                    <div class='hr-line-dashed'></div>
+
+                                    <div class='form-group'><span class='help-block m-b-none'>Nombre del Usuario</span>
+                                        <input type='text' class='form-control' name='usuario'> 
+                                    </div>
+                                    <div class='hr-line-dashed'></div>
+
+                                    <div class='form-group'><span class='help-block m-b-none'>Nueva Contraseña </span>
+                                        <input type='password' class='form-control' name='pass1'> 
+                                    </div>
+                                    <div class='hr-line-dashed'></div>
+
+                                    <div class='form-group'><span class='help-block m-b-none'>Confirmar Contraseña</span>
+                                        <input type='password' class='form-control' name='pass2'> 
+                                    </div>
+                                    <div class='hr-line-dashed'></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Cambiar</button>
+                                    </div>
+
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="wrapper wrapper-content animated fadeInDown">
                     <div class="row">
                         <div class="col-lg-10">
@@ -190,28 +238,28 @@
                                     require_once('../modelo/Data.php');
                                     $d = new Data();
                                     if (isset($_GET['usuario'])) {
-                                       echo"<form method='post' action='../controlador/ControEditarUsuarios.php' class='form-horizontal'>";
+                                        echo"<form method='post' action='../controlador/ControEditarUsuarios.php' class='form-horizontal'>";
 
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Usuario </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' value='".$_GET['usuario']."' name='txtUser' required> <span class='help-block m-b-none'>Usado para el inicio de session</span>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' value='" . $_GET['usuario'] . "' name='txtUser' required> <span class='help-block m-b-none'>Usado para el inicio de session</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
 
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>R.U.N. </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtRut' value='".$_GET['rut']."' data-mask='99.999.999-*' required placeholder='12.345.678-9' readonly> <span class='help-block m-b-none'>R.U.N del usuario</span>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtRut' value='" . $_GET['rut'] . "' data-mask='99.999.999-*' required placeholder='12.345.678-9' readonly> <span class='help-block m-b-none'>R.U.N del usuario</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
-                                        
+
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombres </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtNombre' value='".$_GET['nom']."'> <span class='help-block m-b-none'>Nombres del Usuario</span>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtNombre' value='" . $_GET['nom'] . "'> <span class='help-block m-b-none'>Nombres del Usuario</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
-                                        
+
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Apellidos </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtApellido' value='".$_GET['ape']."'> <span class='help-block m-b-none'>Apellidos del Usuario</span>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtApellido' value='" . $_GET['ape'] . "'> <span class='help-block m-b-none'>Apellidos del Usuario</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
@@ -255,7 +303,6 @@
                                         echo"</div>";
                                         echo"</div>";
                                         echo"</form>";
-                            
                                     } else {
                                         echo"<form method='post' action='../controlador/ControAgregarUsuarios.php' class='form-horizontal'>";
 
@@ -276,13 +323,13 @@
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
-                                        
+
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombres </label>";
                                         echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtNombre' required> <span class='help-block m-b-none'>Nombres del Usuario</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
-                                        
+
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Apellidos </label>";
                                         echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtApellidos' required> <span class='help-block m-b-none'>Apellidos del Usuario</span>";
                                         echo"</div>";
@@ -376,6 +423,17 @@
         <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
         <script src="../js/plugins/dataTables/dataTables.responsive.js"></script>
         <script src="../js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+        <script type="text/javascript">
+                                    function Pass(id, usuario) {
+                                        document.frmPass.id.value = id;
+                                        document.frmPass.id.disabled = true;
+                                        document.frmPass.usuario.value = usuario;
+                                        document.frmPass.usuario.disabled = true;
+                                        document.frmPass.pass1.value = '';
+                                        document.frmPass.pass2.value = '';
+                                        $('#myModal').modal('show');
+                                    }
+        </script>
 
         <script>
             $(document).ready(function () {
@@ -404,7 +462,7 @@
                             "sNext": "Siguiente",
                             "sPrevious": "Anterior"
                         }
-                   
+
 
                     }
 
@@ -450,6 +508,8 @@
 
         <!-- Switchery -->
         <script src="../js/plugins/switchery/switchery.js"></script>
+
+        <script src="../js/ajax.js"></script>
 
 
 

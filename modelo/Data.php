@@ -121,7 +121,8 @@ class Data {
             echo" </button>";
             echo " <ul class = 'dropdown-menu' role = 'menu'>";
             echo " <li><a href='usuarios.php?usuario=" . $row[0] . "&rut=" . $row[1] ."&nom=" . $row[2] ."&ape=" . $row[3] ."&hab=" . $row[4] ."&es=" . $row[5] ."&esta=" . $row[6] ."&institu=" . $row[7] ."'> Editar Usuario</a></li>";
-            echo " <li><a onclick = Eliminar('$row[1]')> Eliminar</a></li>";
+            echo " <li><a onclick = EliminarUsuario('$row[1]')> Eliminar</a></li>";
+            echo " <li><a onclick = Pass('$row[1]','$row[0]')> Cambiar Contraseña</a></li>";
             echo " </ul>";
             echo " </div>";
             echo"</td>";
