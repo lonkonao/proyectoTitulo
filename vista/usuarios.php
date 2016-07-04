@@ -203,6 +203,18 @@
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";
+                                        
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Nombres </label>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtNombre' value='".$_GET['nom']."'> <span class='help-block m-b-none'>Nombres del Usuario</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+                                        echo"<div class='hr-line-dashed'></div>";
+                                        
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Apellidos </label>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtApellido' value='".$_GET['ape']."'> <span class='help-block m-b-none'>Apellidos del Usuario</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+                                        echo"<div class='hr-line-dashed'></div>";
 
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Estado</label>";
                                         echo"<div class='col-sm-10'>";
