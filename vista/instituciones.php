@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-    include_once './controlador/ControSeguridad.php';
+    include_once '../controlador/ControSeguridad.php';
     
    $userUsuario= $_SESSION["nombreUser"];
    $rutUsuario= $_SESSION["rutUser"];
@@ -54,37 +54,49 @@
                             PrevCrim
                         </div>
                     </li>
-                    <li>
-                        <a href="../portal.php"><i class="fa fa-home"></i> <span class="nav-label">Portal</span> <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="../portal.php"><i class="fa fa-home"></i>Inicio</a></li>
-                             <li ><a href="#"><i class="fa fa-line-chart"></i>Estadisticas Portal</a></li>
-                           
-                        </ul>
-                    </li>
-                    <li class="active"> 
-                    <a href="#"><em class="fa fa-cog"></em> <span class="nav-label">Administracion Portal</span> <span class="fa arrow"></span></a> 
-                    <ul class="nav nav-second-level">
-                            <li class="active"><a href="#"><i class="fa fa-university"></i> Instituciones</a></li>
-                             <li><a href="usuarios.php"><i class="fa fa-user"></i> Usuarios</a></li>
-                             <li><a href="#"><i class="fa fa-users"></i> Estamentos</a></li>
-                           
-                        </ul>
-                    </li>
-                    <li> 
-                    <a href="#"><em class="fa fa-cog"></em> <span class="nav-label">Ingresos Datos</span> <span class="fa arrow"></span></a> 
-                    <ul class="nav nav-second-level">
-                            <li><a href="#"><i class="fa fa-user-secret"></i> Delincuente</a></li>
-                             <li><a href="#"><i class="fa fa-gavel"></i> Delitos</a></li>
-                             <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Sectores</a></li>
-                             <li><a href="#"><i class="fa fa-users"></i> Parentesco</a></li>
-                             <li><a href="#"><i class="fa fa-user-plus"></i> Usuarios</a></li>
-                           
-                        </ul>
-                    </li>
-                    <li> 
-                    <a href="#"><em class="fa fa-print"></em> <span class="nav-label">Reportes</span> <span class="fa arrow"></span></a> 
-                    </li>
+                    <?php
+                        switch ($estamentoUsuario) {
+                            case "Administrador General":
+
+                                echo"<li>";
+                                echo"    <a href='../portal.php'><i class='fa fa-home'></i> <span class='nav-label'>Portal</span> <span class='fa arrow'></span></a>";
+                                echo"    <ul class='nav nav-second-level'>";
+                                echo"        <li><a href='../portal.php'><i class='fa fa-home'></i>Inicio</a></li>";
+                                echo"        <li ><a href='#'><i class='fa fa-line-chart'></i>Estadisticas Portal</a></li>";
+                                echo"    </ul>";
+                                echo"                        </li>";
+                                echo"                        <li class='active'> ";
+                                echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <ul class='nav nav-second-level'>";
+                                echo"                                <li class='active'><a href='#'><i class='fa fa-university'></i> Instituciones</a></li>";
+                                echo"                                <li><a href='usuarios.php'><i class='fa fa-user'></i> Usuarios</a></li>";
+
+                                echo"                            </ul>";
+                                echo"                        </li>";
+                                echo"                        <li> ";
+                                echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <ul class='nav nav-second-level'>";
+                                echo"                                <li><a href='#'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-user-plus'></i> Usuarios</a></li>";
+
+                                echo"                            </ul>";
+                                echo"                        </li>";
+                                echo"                        <li> ";
+                                echo"                            <a href='#'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
+                                echo"                        </li>";
+
+
+
+
+
+                                break;
+                            
+                            
+                        }
+                        ?>
                 </ul>
 
             </div>

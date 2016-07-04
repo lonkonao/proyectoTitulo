@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <?php
-    include_once './controlador/ControSeguridad.php';
-    
-   $userUsuario= $_SESSION["nombreUser"];
-   $rutUsuario= $_SESSION["rutUser"];
-   $nombreUsuario=$_SESSION["nomUser"];
-   $apellidoUsuario= $_SESSION["apelliUser"];
-   $institucionUsuario= $_SESSION["instiUser"];
-   $estadoUsuario= $_SESSION["estadoUser"];
-   $estamentoUsuario= $_SESSION["estamUser"];
-   ?>
+    include_once '../controlador/ControSeguridad.php';
+
+    $userUsuario = $_SESSION["nombreUser"];
+    $rutUsuario = $_SESSION["rutUser"];
+    $nombreUsuario = $_SESSION["nomUser"];
+    $apellidoUsuario = $_SESSION["apelliUser"];
+    $institucionUsuario = $_SESSION["instiUser"];
+    $estadoUsuario = $_SESSION["estadoUser"];
+    $estamentoUsuario = $_SESSION["estamUser"];
+    ?>
     <head>
 
         <meta charset="utf-8">
@@ -59,37 +59,81 @@
                                 PrevCrim
                             </div>
                         </li>
-                        <li>
-                            <a href="../portal.php"><i class="fa fa-home"></i> <span class="nav-label">Portal</span> <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="../portal.php"><i class="fa fa-home"></i>Inicio</a></li>
-                                <li ><a href="#"><i class="fa fa-line-chart"></i>Estadisticas Portal</a></li>
+                        <?php
+                        switch ($estamentoUsuario) {
+                            case "Administrador General":
 
-                            </ul>
-                        </li>
-                        <li class="active"> 
-                            <a href="#"><em class="fa fa-cog"></em> <span class="nav-label">Administracion Portal</span> <span class="fa arrow"></span></a> 
-                            <ul class="nav nav-second-level">
-                                <li><a href="instituciones.php"><i class="fa fa-university"></i> Instituciones</a></li>
-                                <li class="active"><a href="#"><i class="fa fa-user"></i> Usuarios</a></li>
-                                <li><a href="#"><i class="fa fa-users"></i> Estamentos</a></li>
+                                echo"<li>";
+                                echo"    <a href='portal.php'><i class='fa fa-home'></i> <span class='nav-label'>Portal</span> <span class='fa arrow'></span></a>";
+                                echo"    <ul class='nav nav-second-level'>";
+                                echo"        <li><a href='portal.php'><i class='fa fa-home'></i>Inicio</a></li>";
+                                echo"        <li ><a href='#'><i class='fa fa-line-chart'></i>Estadisticas Portal</a></li>";
+                                echo"    </ul>";
+                                echo"                        </li>";
+                                echo"                        <li  class='active'> ";
+                                echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <ul class='nav nav-second-level'>";
+                                echo"                                <li><a href='instituciones.php'><i class='fa fa-university'></i> Instituciones</a></li>";
+                                echo"                                <li class='active'><a href='#'><i class='fa fa-user'></i> Usuarios</a></li>";
 
-                            </ul>
-                        </li>
-                        <li> 
-                            <a href="#"><em class="fa fa-cog"></em> <span class="nav-label">Ingresos Datos</span> <span class="fa arrow"></span></a> 
-                            <ul class="nav nav-second-level">
-                                <li><a href="#"><i class="fa fa-user-secret"></i> Delincuente</a></li>
-                                <li><a href="#"><i class="fa fa-gavel"></i> Delitos</a></li>
-                                <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Sectores</a></li>
-                                <li><a href="#"><i class="fa fa-users"></i> Parentesco</a></li>
-                                <li><a href="#"><i class="fa fa-user-plus"></i> Usuarios</a></li>
+                                echo"                            </ul>";
+                                echo"                        </li>";
+                                echo"                        <li> ";
+                                echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <ul class='nav nav-second-level'>";
+                                echo"                                <li><a href='#'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-user-plus'></i> Usuarios</a></li>";
 
-                            </ul>
-                        </li>
-                        <li> 
-                            <a href="#"><em class="fa fa-print"></em> <span class="nav-label">Reportes</span> <span class="fa arrow"></span></a> 
-                        </li>
+                                echo"                            </ul>";
+                                echo"                        </li>";
+                                echo"                        <li> ";
+                                echo"                            <a href='#'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
+                                echo"                        </li>";
+
+
+
+
+
+                                break;
+                            case "Jefe de Zona":
+
+                                echo"<li>";
+                                echo"    <a href='../portal.php'><i class='fa fa-home'></i> <span class='nav-label'>Portal</span> <span class='fa arrow'></span></a>";
+                                echo"    <ul class='nav nav-second-level'>";
+                                echo"        <li><a href='../portal.php'><i class='fa fa-home'></i>Inicio</a></li>";
+                                echo"    </ul>";
+                                echo"                        </li>";
+                                echo"                        <li class='active'> ";
+                                echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <ul class='nav nav-second-level'>";
+                                echo"                                <li class='active'><a href='#'><i class='fa fa-user'></i> Usuarios</a></li>";
+
+                                echo"                            </ul>";
+                                echo"                        </li>";
+                                echo"                        <li> ";
+                                echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <ul class='nav nav-second-level'>";
+                                echo"                                <li><a href='#'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
+
+                                echo"                            </ul>";
+                                echo"                        </li>";
+                                echo"                        <li> ";
+                                echo"                            <a href='#'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
+                                echo"                        </li>";
+
+
+
+
+
+                                break;
+                        }
+                        ?>
                     </ul>
 
                 </div>
@@ -196,7 +240,7 @@
                             <div class="modal-body">
 
                                 <form role="form" action="" name="frmPass" onsubmit="PassUser(id, usuario, pass1, pass2); return false">
-                                    
+
                                     <div class='form-group'><span class='help-block m-b-none'>R.U.N</span> 
                                         <input type='text' class='form-control' name='id'>
                                     </div>
@@ -358,8 +402,17 @@
 
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Estamento</label>";
                                         echo"<div class='col-sm-10'>";
+                                        switch ($estamentoUsuario) {
+                                            case "Administrador General":
+                                                $d->comboEstado();
 
-                                        $d->comboEstamentos();
+
+                                                break;
+
+                                            default:
+                                                $d->comboEstamentosSinAdmin();
+                                                break;
+                                        }
 
                                         echo"<span class='help-block m-b-none'>Tipo Usuario</span>";
                                         echo"</div>";
@@ -370,7 +423,18 @@
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Institucion</label>";
                                         echo"<div class='col-sm-10'>";
 
-                                        $d->comboInstitucion();
+                                        switch ($estamentoUsuario) {
+                                            case "Administrador General":
+                                                $d->comboInstitucion();
+
+
+                                                break;
+
+                                            default:
+                                                $d->comboInstitucionFiltro($institucionUsuario);
+                                                break;
+                                        }
+
 
                                         echo"<span class='help-block m-b-none'>Institucion en el Sistema</span>";
                                         echo"</div>";
@@ -394,7 +458,7 @@
                         <div class="col-lg-10">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Lista de Instituciones </h5>
+                                    <h5>Lista de Usuarios </h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -404,7 +468,7 @@
                                 </div>
                                 <div class="ibox-content">
                                     <?php
-                                    $d->listaUsuarios();
+                                    $d->listaUsuarios($estamentoUsuario);
                                     ?>
 
                                 </div>

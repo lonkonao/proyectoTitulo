@@ -40,13 +40,12 @@ class Data {
             $us->user = $fila[0];
             $us->pswd = $fila[1];
             $us->rut = $fila[2];
-            $us->nombre= $fila[3];
-            $us->apellidos= $fila[4];
+            $us->nombre = $fila[3];
+            $us->apellidos = $fila[4];
             $us->feHabilitacion = $fila[5];
             $us->estado = $fila[6];
             $us->estamento = $fila[7];
             $us->institucion = $fila[8];
-            
         }
         return $us;
     }
@@ -60,7 +59,7 @@ class Data {
         echo"        <tr>";
         echo"            <th>Id</th>";
         echo"            <th>Institucion</th>";
-		echo"            <th>Acciones</th>";
+        echo"            <th>Acciones</th>";
         echo"      </tr>";
         echo"  </thead>";
         echo"  <tbody>";
@@ -75,7 +74,7 @@ class Data {
             echo" <span class = 'caret'></span>";
             echo" </button>";
             echo " <ul class = 'dropdown-menu' role = 'menu'>";
-            echo " <li><a href='instituciones.php?id=" . $row[0] . "&nombre=" . $row[1] ."'> Editar Institución</a></li>";
+            echo " <li><a href='instituciones.php?id=" . $row[0] . "&nombre=" . $row[1] . "'> Editar Institución</a></li>";
             echo " <li><a onclick = Eliminar('$row[0]')> Eliminar</a></li>";
             echo " </ul>";
             echo " </div>";
@@ -87,7 +86,7 @@ class Data {
         ;
     }
 
-    public function listaUsuarios() {
+    public function listaUsuarios($estamento) {
         $sql = "select u.user,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i  where u.institucion = i.id and u.estamento = es.id and u.estado = e.id ";
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
@@ -102,7 +101,7 @@ class Data {
         echo" <th>Estado</th>";
         echo" <th>Estamento</th>";
         echo" <th>Institucion</th>";
-	echo" <th>Acciones</th>";
+        echo" <th>Acciones</th>";
         echo" </tr>";
         echo" </thead>";
         echo" <tbody>";
@@ -123,9 +122,19 @@ class Data {
             echo" <span class = 'caret'></span>";
             echo" </button>";
             echo " <ul class = 'dropdown-menu' role = 'menu'>";
-            echo " <li><a href='usuarios.php?usuario=" . $row[0] . "&rut=" . $row[1] ."&nom=" . $row[2] ."&ape=" . $row[3] ."&hab=" . $row[4] ."&es=" . $row[5] ."&esta=" . $row[6] ."&institu=" . $row[7] ."'> Editar Usuario</a></li>";
-            echo " <li><a onclick = EliminarUsuario('$row[1]')> Eliminar</a></li>";
-            echo " <li><a onclick = Pass('$row[1]','$row[0]')> Cambiar Contraseña</a></li>";
+            switch ($estamento) {
+                case 'Administrador General':
+                    echo " <li><a href='usuarios.php?usuario=" . $row[0] . "&rut=" . $row[1] . "&nom=" . $row[2] . "&ape=" . $row[3] . "&hab=" . $row[4] . "&es=" . $row[5] . "&esta=" . $row[6] . "&institu=" . $row[7] . "'> Editar Usuario</a></li>";
+                    echo " <li><a onclick = EliminarUsuario('$row[1]')> Eliminar</a></li>";
+                    echo " <li><a onclick = Pass('$row[1]','$row[0]')> Cambiar Contraseña</a></li>";
+
+                    break;
+
+                default:
+                    echo " <li>Sin Permisos</li>";
+                    break;
+            }
+
             echo " </ul>";
             echo " </div>";
             echo"</td>";
@@ -133,10 +142,7 @@ class Data {
         }
         echo" </tbody>";
         echo" </table>";
-       
     }
-
-   
 
     //    
     //     
@@ -182,7 +188,7 @@ class Data {
         }
     }
 
-    public function insertUsuario($user, $pass, $rut,$nombre,$apellido ,$habilitacion, $estado, $estamento, $institucion) {
+    public function insertUsuario($user, $pass, $rut, $nombre, $apellido, $habilitacion, $estado, $estamento, $institucion) {
         $sql = "insert into us_perfil values ('" . $user . "','" . $pass . "','" . $rut . "','" . $nombre . "','" . $apellido . "','" . $habilitacion . "','" . $estado . "','" . $estamento . "','" . $institucion . "')";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
@@ -238,7 +244,7 @@ class Data {
         }
         echo "</select>";
     }
-    
+
     public function comboEstadoFiltro($filtro) {
         $sql = "select id, nombre from us_estado";
 
@@ -254,9 +260,8 @@ class Data {
         }
         echo "</select>";
     }
-    
-	
-	public function comboEstamentos() {
+
+    public function comboEstamentos() {
         $sql = "select id, nombre from us_estamento";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
@@ -268,8 +273,8 @@ class Data {
         }
         echo "</select>";
     }
-    
-    	public function comboEstamentosFiltro($filtro) {
+
+    public function comboEstamentosFiltro($filtro) {
         $sql = "select id, nombre from us_estamento";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
@@ -281,13 +286,24 @@ class Data {
             } else {
                 echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
             }
-
-            
         }
         echo "</select>";
     }
-	
-	public function comboInstitucion() {
+
+    public function comboEstamentosSinAdmin() {
+        $sql = "select * from us_estamento where nombre not like '%Administrador General%';";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='region' name='estamento' class='form-control m-b' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+        }
+        echo "</select>";
+    }
+
+    public function comboInstitucion() {
         $sql = "select id, nombre from us_institucion";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
@@ -299,8 +315,8 @@ class Data {
         }
         echo "</select>";
     }
-    
-    	public function comboInstitucionFiltro($filtro) {
+
+    public function comboInstitucionFiltro($filtro) {
         $sql = "select id, nombre from us_institucion ";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
@@ -315,11 +331,6 @@ class Data {
         }
         echo "</select>";
     }
-	
-	
-
-	
-	
 
     public function comboRegionFiltro($id) {
         $sql = "select c.codigoInterno,c.nombre from comunas c , regiones r where c.padre = r.codigo and  r.codigo = " . $id;
@@ -378,8 +389,8 @@ class Data {
             echo '</script>';
         }
     }
-    
-        public function upUsuarios($user, $estado,$estamento,$rut) {
+
+    public function upUsuarios($user, $estado, $estamento, $rut) {
         $sql = "UPDATE us_perfil set user='" . $user . "', estado='" . $estado . "', estamento='" . $estamento . "' where rut='" . $rut . "'";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
@@ -391,8 +402,8 @@ class Data {
             echo '</script>';
         }
     }
-    
-          public function upPassUsuarios($pass,$rut) {
+
+    public function upPassUsuarios($pass, $rut) {
         $sql = "UPDATE us_perfil set pswd='" . $pass . "' where rut='" . $rut . "'";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
@@ -404,8 +415,6 @@ class Data {
             echo '</script>';
         }
     }
-
-  
 
     //
     //    
@@ -435,7 +444,7 @@ class Data {
             echo '</script>';
         }
     }
-    
+
     public function borrarUsuario($rut) {
         $sql = "DELETE FROM us_perfil WHERE rut = '" . $rut . "'";
         if (!$this->c->ejecutar($sql)) {
@@ -449,5 +458,4 @@ class Data {
         }
     }
 
-    
 }
