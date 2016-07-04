@@ -34,8 +34,8 @@ function Eliminar(id) {
         //Sin acciones
     }
 }
-    
-    function EliminarUsuario(id) {
+
+function EliminarUsuario(id) {
     if (confirm("En realidad desea eliminar esta Usuario?")) {
         ajax = objetoAjax();
         ajax.open("POST", "../controlador/controEliminarUsuarios.php", true);
@@ -54,19 +54,14 @@ function Eliminar(id) {
 }
 
 function PassUser(id, usuario, pass1, pass2) {
-
-
-
     id = document.frmPass.id.value;
     usuario = document.frmPass.usuario.value;
     pass1 = document.frmPass.pass1.value;
     pass2 = document.frmPass.pass2.value;
 
-
-
     ajax = objetoAjax();
     if (pass1 == pass2) {
-        ajax.open("POST", "../../controlador/ControEditarPassUser.php", true);
+        ajax.open("POST", "../controlador/ControEditarPassUser.php", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 alert('Los datos fueron guardados con exito!');
@@ -78,10 +73,6 @@ function PassUser(id, usuario, pass1, pass2) {
     } else {
         alert("La Contraseña Ingresada No Es Valida");
     }
-
-
-
-
 
 }
 

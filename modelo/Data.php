@@ -28,9 +28,9 @@ class Data {
 //    
 
     public function existeUsuario($usuario, $pass) {
-        $sql = "select * from usuario "
-                . "where usuario = '$usuario' and "
-                . "pass = '$pass'";
+        $sql = "select * from us_perfil "
+                . "where user = '$usuario' and "
+                . "pswd = '$pass'";
         $us = null;
         $res = $this->c->ejecutar($sql);
         while ($fila = $res->fetch_array()) {
@@ -38,11 +38,12 @@ class Data {
             $us->user = $fila[0];
             $us->pswd = $fila[1];
             $us->rut = $fila[2];
-            $us->feHabilitacion = $fila[3];
-            $us->estado = $fila[4];
-            $us->editar = $fila[5];
-            $us->estamento = $fila[6];
-            $us->institucion = $fila[7];
+            $us->nombre= $fila[3];
+            $us->apellidos= $fila[4];
+            $us->feHabilitacion = $fila[5];
+            $us->estado = $fila[6];
+            $us->estamento = $fila[7];
+            $us->institucion = $fila[8];
             
         }
         return $us;
