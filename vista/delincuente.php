@@ -21,6 +21,8 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
 
+        <link href="../css/plugins/chosen/chosen.css" rel="stylesheet">
+
         <!-- Toastr style -->
         <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
@@ -35,6 +37,14 @@
         <link href="../css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
 
         <link href="../css/plugins/steps/jquery.steps.css" rel="stylesheet">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#region').change(function () {
+                    var id = $('#region').val();
+                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                });
+            });
+        </script>
 
 
     </head>
@@ -250,114 +260,80 @@
                 <!-- main body   -->
 
                 <!--   </div> -->
-
-
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="ibox">
+                        <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>Registro de Delincuentes</h5>
+                                <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>
                                     </a>
-
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="#">Config option 1</a>
+                                        </li>
+                                        <li><a href="#">Config option 2</a>
+                                        </li>
+                                    </ul>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
                                 </div>
                             </div>
                             <div class="ibox-content">
-                                <h2>
-                                    Ingreso de Delincuentes
-                                </h2>
-                                <p>
-                                    Siga los pasos para registrar a un delincuente
-                                </p>
-
-                                <form id="form" action="#" class="wizard-big">
-                                    <h1>Antecedentes Basicos</h1>
-                                    <fieldset>
-                                        <h2>Antecedentes</h2>
-                                        <div class="row">
-                                            <div class="col-lg-8">
-                                                <div class="form-group">
-                                                    <label>R.U.N *</label>
-                                                    <input  name="txtRut" type="text" data-mask="99.999.999-*" placeholder="12.345.678-9" class="form-control required">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Nombres *</label>
-                                                    <input  name="txtNombre" type="text" class="form-control required">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Apellido Paterno *</label>
-                                                    <input name="txtApellidoP" type="text" class="form-control required">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Apellido Materno *</label>
-                                                    <input name="txtApellidoM" type="text" class="form-control required">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Apodo</label>
-                                                    <input name="txtApodo" type="text" class="form-control ">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="text-center">
-                                                    <div style="margin-top: 20px">
-                                                        <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <form method="get" class="form-horizontal">
+                                    
+                                    <div class="form-group"><label class="col-sm-2 control-label">R.U.N</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtRut" data-mask='99.999.999-*' required placeholder='12.345.678-9'> 
+                                            <span class="help-block m-b-none">Ingrese R.U.N del Delincuente</span>
                                         </div>
-
-                                    </fieldset>
-                                    <h1>Perfil</h1>
-                                    <fieldset>
-                                        <h2>Perfil Información</h2>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Domicilio Particular *</label>
-                                                    <input name="txtDomicilio" type="text" class="form-control required">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Last name *</label>
-                                                    <?php
-                                                    require_once '../modelo/Data.php';
-                                                    $d = new Data();
-
-                                                    $d->comboRegion();
-                                                    ?>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Email *</label>
-                                                    <input id="email" name="email" type="text" class="form-control required email">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Address *</label>
-                                                    <input id="address" name="address" type="text" class="form-control">
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    
+                                    <div class="form-group"><label class="col-sm-2 control-label">Nombre</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtNombre"> <span class="help-block m-b-none">Ingrese Nombres del Delincuente.</span>
                                         </div>
-                                    </fieldset>
-
-                                    <h1>Warning</h1>
-                                    <fieldset>
-                                        <div class="text-center" style="margin-top: 120px">
-                                            <h2>You did it Man :-)</h2>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    
+                                    <div class="form-group"><label class="col-sm-2 control-label">Apellido Paterno</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtApellidoP"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                                         </div>
-                                    </fieldset>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    
+                                    <div class="form-group"><label class="col-sm-2 control-label">Apellido Materno</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtApellidoM"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    
+                                    <div class="form-group"><label class="col-sm-2 control-label">Apodo</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtApodo"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    
+                                    <div class="form-group"><label class="col-sm-2 control-label">Help text</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
 
-                                    <h1>Finish</h1>
-                                    <fieldset>
-                                        <h2>Terms and Conditions</h2>
-                                        <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
-                                    </fieldset>
+                                   
+                                    <div class="form-group">
+                                        <div class="col-sm-4 col-sm-offset-2">
+                                            <button class="btn btn-white" type="submit">Cancel</button>
+                                            <button class="btn btn-primary" type="submit">Save changes</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -389,14 +365,47 @@
     <!-- Jquery Validate -->
     <script src="../js/plugins/validate/jquery.validate.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#region').change(function () {
-                var id = $('#region').val();
-                $('#comunas').load('ajax.php?id=' + id);
-            });
-        });
+$(document).ready(function () {
+$('#region').change(function () {
+    var id = $('#region').val();
+    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+});
+});
     </script>
+    <script>
+        $(document).ready(function () {
 
+
+
+            var elem = document.querySelector('.js-switch');
+            var switchery = new Switchery(elem, {color: '#1AB394'});
+
+            var elem_2 = document.querySelector('.js-switch_2');
+            var switchery_2 = new Switchery(elem_2, {color: '#ED5565'});
+
+            var elem_3 = document.querySelector('.js-switch_3');
+            var switchery_3 = new Switchery(elem_3, {color: '#1AB394'});
+
+
+
+
+        });
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': {allow_single_deselect: true},
+            '.chosen-select-no-single': {disable_search_threshold: 10},
+            '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
+            '.chosen-select-width': {width: "95%"}
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+
+
+
+
+
+    </script>
 
     <script>
         $(document).ready(function () {
@@ -482,11 +491,11 @@
     <script>
         $(document).ready(function () {
             $('.dataTables-example').dataTable({
-//                    responsive: true,
-//                    "dom": 'T<"clear">lfrtip',
-//                    "tableTools": {
-//                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
-//                    },
+                //                    responsive: true,
+                //                    "dom": 'T<"clear">lfrtip',
+                //                    "tableTools": {
+                //                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                //                    },
                 language: {
                     "sProcessing": "Procesando...",
                     "sLengthMenu": "Mostrar _MENU_ registros",
@@ -554,6 +563,8 @@
     <script src="../js/plugins/switchery/switchery.js"></script>
 
     <script src="../js/ajax.js"></script>
+    <!-- Chosen -->
+    <script src="../js/plugins/chosen/chosen.jquery.js"></script>
 
 
 
