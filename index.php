@@ -30,7 +30,7 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>Iniciar sesión</p>
-            <form class="m-t" role="form" action="portal.php">
+            <form class="m-t" role="form" action="controlador/ControInicioSession.php" method="post">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Usuario" required="">
                 </div>
