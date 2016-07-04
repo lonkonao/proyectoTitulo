@@ -35,13 +35,14 @@
         <link href="../css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
         <link href="../css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
         <link href="../css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+        <link href="../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
         <link href="../css/plugins/steps/jquery.steps.css" rel="stylesheet">
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#region').change(function () {
                     var id = $('#region').val();
-                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                    $('#comunas').load('ajax.php?id=' + id);
                 });
             });
         </script>
@@ -260,80 +261,119 @@
                 <!-- main body   -->
 
                 <!--   </div> -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="#">Config option 1</a>
-                                        </li>
-                                        <li><a href="#">Config option 2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
+                <div class="wrapper wrapper-content animated fadeInDown">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Ingreso <small>Delincuente.</small></h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <form method="get" class="form-horizontal">
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">R.U.N</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtRut" data-mask='99.999.999-*' required placeholder='12.345.678-9'> 
+                                                <span class="help-block m-b-none">Ingrese R.U.N del Delincuente</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">Nombre</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtNombre"> <span class="help-block m-b-none">Ingrese Nombres del Delincuente.</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">Apellido Paterno</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtApellidoP"> <span class="help-block m-b-none">Ingrese Apellido Paterno</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">Apellido Materno</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtApellidoM"> <span class="help-block m-b-none">Ingrese Apellido Materno</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">Apodo</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtApodo"> <span class="help-block m-b-none">Ingrese Apodo</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">Nombre calle</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtCalle"> <span class="help-block m-b-none">Ingrese Nombre de la calle</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+                                        <?php
+                                        require_once '../modelo/Data.php';
+                                        $d = new Data();
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Region</label>";
+                                        echo"<div class='col-sm-10'>";
+
+                                        $d->comboRegion();
+
+                                        echo"<span class='help-block m-b-none'>Ingrese Region</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+                                        echo"<div class='hr-line-dashed'></div>";
+
+                                        echo" <div class = 'form-group'><label class = 'col-sm-2 control-label'>Comuna</label>";
+                                        echo" <div id = 'comunas' >";
+                                        echo" <div class = 'col-sm-10'>";
+                                        echo" <select name = 'comunas' class = 'form-control m-b'>";
+                                        echo" <option value = '' >Seleccione una region</option>";
+                                        echo" </select>";
+                                        echo" </div>";
+                                        echo"<span class='help-block m-b-none'>Selecione una Comuna</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+                                        echo"<div class='hr-line-dashed'></div>";
+                                        ?>
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">Telefono Fijo</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtTelefonoFijo" ><span class="help-block m-b-none">Ingrese Nombre de la calle</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+
+                                        <div class="form-group"><label class="col-sm-2 control-label">Telefono Movil</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtCelu" data-mask="(+569)99999999"> <span class="help-block m-b-none">Ingrese Nombre de la calle</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+
+                                        <div class="form-group" id="data_1"><label class="col-sm-2 control-label">Fecha Nacimiento</label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="03/04/2014">
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-sm-4 col-sm-offset-2">
+                                                <button class="btn btn-white" type="submit">Cancelar</button>
+                                                <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="ibox-content">
-                                <form method="get" class="form-horizontal">
-                                    
-                                    <div class="form-group"><label class="col-sm-2 control-label">R.U.N</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtRut" data-mask='99.999.999-*' required placeholder='12.345.678-9'> 
-                                            <span class="help-block m-b-none">Ingrese R.U.N del Delincuente</span>
-                                        </div>
-                                    </div>
-                                    <div class="hr-line-dashed"></div>
-                                    
-                                    <div class="form-group"><label class="col-sm-2 control-label">Nombre</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtNombre"> <span class="help-block m-b-none">Ingrese Nombres del Delincuente.</span>
-                                        </div>
-                                    </div>
-                                    <div class="hr-line-dashed"></div>
-                                    
-                                    <div class="form-group"><label class="col-sm-2 control-label">Apellido Paterno</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtApellidoP"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                        </div>
-                                    </div>
-                                    <div class="hr-line-dashed"></div>
-                                    
-                                    <div class="form-group"><label class="col-sm-2 control-label">Apellido Materno</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtApellidoM"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                        </div>
-                                    </div>
-                                    <div class="hr-line-dashed"></div>
-                                    
-                                    <div class="form-group"><label class="col-sm-2 control-label">Apodo</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" name="txtApodo"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                        </div>
-                                    </div>
-                                    <div class="hr-line-dashed"></div>
-                                    
-                                    <div class="form-group"><label class="col-sm-2 control-label">Help text</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                        </div>
-                                    </div>
-                                    <div class="hr-line-dashed"></div>
-
-                                   
-                                    <div class="form-group">
-                                        <div class="col-sm-4 col-sm-offset-2">
-                                            <button class="btn btn-white" type="submit">Cancel</button>
-                                            <button class="btn btn-primary" type="submit">Save changes</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
-                    </div>
+                    </div
                 </div>
             </div>
 
@@ -350,6 +390,15 @@
 
     <!-- Mainly scripts -->
     <script src="../js/jquery-2.1.1.js"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#region').change(function () {
+                    var id = $('#region').val();
+                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                });
+            });
+    </script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -365,12 +414,12 @@
     <!-- Jquery Validate -->
     <script src="../js/plugins/validate/jquery.validate.min.js"></script>
     <script type="text/javascript">
-$(document).ready(function () {
-$('#region').change(function () {
-    var id = $('#region').val();
-    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
-});
-});
+            $(document).ready(function () {
+                $('#region').change(function () {
+                    var id = $('#region').val();
+                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                });
+            });
     </script>
     <script>
         $(document).ready(function () {
@@ -409,81 +458,12 @@ $('#region').change(function () {
 
     <script>
         $(document).ready(function () {
-            $("#wizard").steps();
-            $("#form").steps({
-                bodyTag: "fieldset",
-                onStepChanging: function (event, currentIndex, newIndex)
-                {
-                    // Always allow going backward even if the current step contains invalid fields!
-                    if (currentIndex > newIndex)
-                    {
-                        return true;
-                    }
-
-                    // Forbid suppressing "Warning" step if the user is to young
-                    if (newIndex === 3 && Number($("#age").val()) < 18)
-                    {
-                        return false;
-                    }
-
-                    var form = $(this);
-
-                    // Clean up if user went backward before
-                    if (currentIndex < newIndex)
-                    {
-                        // To remove error styles
-                        $(".body:eq(" + newIndex + ") label.error", form).remove();
-                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
-                    }
-
-                    // Disable validation on fields that are disabled or hidden.
-                    form.validate().settings.ignore = ":disabled,:hidden";
-
-                    // Start validation; Prevent going forward if false
-                    return form.valid();
-                },
-                onStepChanged: function (event, currentIndex, priorIndex)
-                {
-                    // Suppress (skip) "Warning" step if the user is old enough.
-                    if (currentIndex === 2 && Number($("#age").val()) >= 18)
-                    {
-                        $(this).steps("next");
-                    }
-
-                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
-                    if (currentIndex === 2 && priorIndex === 3)
-                    {
-                        $(this).steps("previous");
-                    }
-                },
-                onFinishing: function (event, currentIndex)
-                {
-                    var form = $(this);
-
-                    // Disable validation on fields that are disabled.
-                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
-                    form.validate().settings.ignore = ":disabled";
-
-                    // Start validation; Prevent form submission if false
-                    return form.valid();
-                },
-                onFinished: function (event, currentIndex)
-                {
-                    var form = $(this);
-
-                    // Submit form input
-                    form.submit();
-                }
-            }).validate({
-                errorPlacement: function (error, element)
-                {
-                    element.before(error);
-                },
-                rules: {
-                    confirm: {
-                        equalTo: "#password"
-                    }
-                }
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
             });
         });
     </script>
@@ -565,6 +545,9 @@ $('#region').change(function () {
     <script src="../js/ajax.js"></script>
     <!-- Chosen -->
     <script src="../js/plugins/chosen/chosen.jquery.js"></script>
+    
+       <!-- Data picker -->
+   <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
 
 

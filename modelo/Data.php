@@ -337,14 +337,15 @@ class Data {
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo "<div class='col-sm-10'>";
+       echo" <div class = 'col-sm-10'>";
         echo "<select id='region' name='regionF' class='form-control m-b' >";
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
         }
         echo "</select>";
-        echo "</div>";
+        echo"</div>";
+        
     }
     
     public function comboRegion() {
@@ -352,7 +353,7 @@ class Data {
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo "<select id='region' name='region' class='chosen-select' >";
+        echo "<select id='region' name='region' class='form-control m-b' >";
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";

@@ -69,8 +69,8 @@
                                 echo"                        <li> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
-                                echo"                                <li><a href='vista/instituciones.php'><i class='fa fa-university'></i> Instituciones</a></li>";
-                                echo"                                <li><a href='vista/usuarios.php'><i class='fa fa-user'></i> Usuarios</a></li>";
+                                echo"                                <li><a href='./vista/instituciones.php'><i class='fa fa-university'></i> Instituciones</a></li>";
+                                echo"                                <li><a href='./vista/usuarios.php'><i class='fa fa-user'></i> Usuarios</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-users'></i> Estamentos</a></li>";
 
                                 echo"                            </ul>";
@@ -78,7 +78,7 @@
                                 echo"                        <li> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
-                                echo"                                <li><a href='/vista/delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
+                                echo"                                <li><a href='./vista/delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
@@ -113,7 +113,7 @@
                                 echo"                        <li> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
-                                echo"                                <li><a href='/vista/delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
+                                echo"                                <li><a href='./vista/delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
