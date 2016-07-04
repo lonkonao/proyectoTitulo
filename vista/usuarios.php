@@ -199,7 +199,7 @@
                                         echo"<div class='hr-line-dashed'></div>";
 
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>R.U.N. </label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtRut' value='".$_GET['rut']."' data-mask='99.999.999-*' required placeholder='12.345.678-9'> <span class='help-block m-b-none'>R.U.N del usuario</span>";
+                                        echo"<div class='col-sm-10'><input type='text' class='form-control' name='txtRut' value='".$_GET['rut']."' data-mask='99.999.999-*' required placeholder='12.345.678-9' readonly> <span class='help-block m-b-none'>R.U.N del usuario</span>";
                                         echo"</div>";
                                         echo"</div>";
                                         echo"<div class='hr-line-dashed'></div>";

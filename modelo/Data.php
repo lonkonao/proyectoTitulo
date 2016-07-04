@@ -116,7 +116,7 @@ class Data {
             echo" <span class = 'caret'></span>";
             echo" </button>";
             echo " <ul class = 'dropdown-menu' role = 'menu'>";
-            echo " <li><a href='instituciones.php?usuario=" . $row[0] . "&rut=" . $row[1] ."&hab=" . $row[2] ."&es=" . $row[3] ."&esta=" . $row[4] ."&institu=" . $row[5] ."'> Editar Usuario</a></li>";
+            echo " <li><a href='usuarios.php?usuario=" . $row[0] . "&rut=" . $row[1] ."&hab=" . $row[2] ."&es=" . $row[3] ."&esta=" . $row[4] ."&institu=" . $row[5] ."'> Editar Usuario</a></li>";
             echo " <li><a onclick = Eliminar('$row[1]')> Eliminar</a></li>";
             echo " </ul>";
             echo " </div>";
@@ -289,7 +289,7 @@ class Data {
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo "<select id='region' name='institucion' class='form-control m-b' >";
+        echo "<select id='region' name='institucion' class='form-control m-b' disabled>";
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
@@ -356,6 +356,19 @@ class Data {
         } else {
             echo '<script language="javascript">';
             echo 'alert("El Usuario (' . $nombre . ') Ha Sido Actualizado Correctamente"); location.href="../vista/instituciones.php"';
+            echo '</script>';
+        }
+    }
+    
+        public function upUsuarios($user, $estado,$estamento,$rut) {
+        $sql = "UPDATE us_institucion set user='" . $user . "', estado='" . $estado . "', estamento='" . $estamento . "' where rut='" . $rut . "'";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/usuarios.php?e=1"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("El Usuario (' . $nombre . ') Ha Sido Actualizado Correctamente"); location.href="../vista/usuarios.php"';
             echo '</script>';
         }
     }
