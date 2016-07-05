@@ -6,7 +6,7 @@ $d=new Data();
 $id=$_POST['id'];
 
 
-$d->borrarInstitucion($id);
+$d->borrarSector($id);
 
 
 
