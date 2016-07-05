@@ -185,6 +185,39 @@ class Data {
         echo" </table>";
     }
     
+    public function listaHistorial() {
+        $sql = "select h.rut_delincuente,d.nombre,d.apellidoP,d.apellidoM,h.direccion,c.nombre,r.nombre,s.nombre from historialubicaciones h, dl_delincuente d,comunas c, regiones r,conf_sector s where s.cod = h.sector and r.codigo = h.region and c.codigointerno = h.comuna and d.rut = h.rut_delincuente";
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";
+        echo" <thead>";
+        echo" <tr>";
+        echo" <th>R.U.N</th>";
+        echo" <th>Nombres</th>";
+        echo" <th>Apellido Paterno</th>";
+        echo" <th>Apellido Materno</th>";
+        echo" <th>Domicilio</th>";
+        echo" <th>Comuna</th>";
+        echo" <th>Region</th>";
+        echo" <th>Sector</th>";
+        echo" </tr>";
+        echo" </thead>";
+        echo" <tbody>";
+        while ($row = $res->fetch_array()) {
+            echo" <tr style='color: #00598e;font-weight: bold;'>";
+            echo" <td>" . $row[0] . "</td>";
+            echo" <td>" . $row[1] . "</td>";
+            echo" <td>" . $row[2] . "</td>";
+            echo" <td>" . $row[3] . "</td>";
+            echo" <td>" . $row[4] . "</td>";
+            echo" <td>" . $row[5] . "</td>";
+            echo" <td>" . $row[6] . "</td>";
+            echo" <td>" . $row[7] . "</td>";
+            echo" </tr>";
+        }
+        echo" </tbody>";
+        echo" </table>";
+    }
 
 
     public function listaUsuariosF($estamento, $filtro) {
@@ -345,6 +378,32 @@ switch ($estamento) {
             echo " </ul>";
             echo " </div>";
             echo"</td>";
+            echo" </tr>";
+        }
+        echo" </tbody>";
+        echo" </table>";
+    }
+    
+    public function listaParentesco2() {
+        $sql = "select p.rut1,tp.parentesco,p.rut2 from parentensco p , tipoparentesco tp where tp.id = p.parentesco";
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";
+        echo" <thead>";
+        echo" <tr>";
+        echo" <th>R.U.N</th>";
+        echo" <th>Tipo Parentensco</th>";
+        echo" <th>R.U.N</th>";
+        echo" <th>Acciones</th>";
+        echo" </tr>";
+        echo" </thead>";
+        echo" <tbody>";
+        while ($row = $res->fetch_array()) {
+            echo" <tr style='color: #00598e;font-weight: bold;'>";
+            echo" <td>" . $row[0] . "</td>";
+            echo" <td>" . $row[1] . "</td>";
+            echo" <td>" . $row[2] . "</td>";
+            
             echo" </tr>";
         }
         echo" </tbody>";

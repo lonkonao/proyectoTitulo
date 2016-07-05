@@ -284,6 +284,48 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                     ?>
                                 </div>
                             </div>
+                        </div
+                        <div class="col-lg-15">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Reportes <small> De ubicaciones</small></h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <?php
+                                    require_once '../modelo/Data.php';
+                                    $d = new Data();
+
+                                    $d->listaHistorial();
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-15">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Reportes <small> De Parentesco</small></h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <?php
+                                    require_once '../modelo/Data.php';
+                                    $d = new Data();
+
+                                    $d->listaParentesco2();
+                                    ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
