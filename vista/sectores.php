@@ -95,8 +95,8 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
-                                echo"                                <li class='active'><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
+                                echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li class='active'><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-user-plus'></i> Usuarios</a></li>";
 
@@ -130,8 +130,8 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
-                                echo"                                <li class='active'><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
+                                echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li class='active'><a href='#'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
 
                                 echo"                            </ul>";
@@ -157,7 +157,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
-                                echo"                                <li class='active'><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li class='active'><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
 
                                 echo"                            </ul>";
@@ -276,110 +276,62 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 </div>
                                 <div class="ibox-content">
                                     <form method="get" action="" class="form-horizontal">
-                                        <?php
-
-                                        function crear_semilla() {
-                                            list($usec, $sec) = explode(' ', microtime());
-                                            return (float) $sec + ((float) $usec * 100000);
-                                        }
-
-                                        srand(crear_semilla());
-
-                                        $clave = "";
-                                        $max_chars = round(rand(7, 10));  // tendrá entre 7 y 10 caracteres 
-                                        $chars = array();
-                                        for ($i = "a"; $i < "z"; $i++)
-                                            $chars[] = $i;
-                                        $chars[] = "z";
-                                        for ($i = 0; $i < $max_chars; $i++) {
-                                            $letra = round(rand(0, 1));
-                                            if ($letra) // es letra 
-                                                $clave .= $chars[round(rand(0, count($chars) - 1))];
-                                            else // es numero 
-                                                $clave .= round(rand(0, 9));
-                                        }
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Codigo</label>";
-                                        echo"<div class='col-sm-10'><input type='text' class='form-control required' name='txtCod' value='" . $clave . "' readonly> ";
-                                        echo"<span class='help-block m-b-none'>Codigo Autogenerado</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        ?>
+                                        
+                                        
+                                        <div class="form-group"><label class="col-sm-2 control-label">Codigo Sector</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtCod" > 
+                                                <span class="help-block m-b-none">Asigne un Codigo para el sector</span>
+                                            </div>
+                                        </div>
                                         <div class="hr-line-dashed"></div>
+                                        
+                                        <div class="form-group"><label class="col-sm-2 control-label">Nombre del Sector</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtNombre" > 
+                                                <span class="help-block m-b-none">Asigne un Nombre para el sector</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        
+                                        <div class="form-group"><label class="col-sm-2 control-label">Norte</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtNorte" > 
+                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante norte</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        
+                                         
+                                        <div class="form-group"><label class="col-sm-2 control-label">Oeste</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtOeste" > 
+                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante Oeste</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        
+                                         
+                                        <div class="form-group"><label class="col-sm-2 control-label">Sur</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtSur" > 
+                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante Sur</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        
+                                         
+                                        <div class="form-group"><label class="col-sm-2 control-label">Este</label>
+                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtEste" > 
+                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante Este</span>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        
+                                           
                                         <div class="form-group"><label class="col-sm-2 control-label">Descripcion</label>
                                             <div class="col-sm-10"><input type="text" class="form-control required" name="txtDescripcion" > 
-                                                <span class="help-block m-b-none">Descripcion de los hechos</span>
+                                                <span class="help-block m-b-none">Descripcion del Sector</span>
                                             </div>
                                         </div>
                                         <div class="hr-line-dashed"></div>
 
 
-
-                                        <div class="form-group"><label class="col-sm-2 control-label">Direccion</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtDireccion"> 
-                                                <span class="help-block m-b-none">Direccion Delito</span>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="hr-line-dashed"></div>
-                                        <?php
-                                        require_once '../modelo/Data.php';
-                                        $d = new Data();
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Region</label>";
-                                        echo"<div class='col-sm-10'>";
-
-                                        $d->comboRegion();
-
-                                        echo"<span class='help-block m-b-none'>Ingrese Region</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo" <div class = 'form-group'><label class = 'col-sm-2 control-label'>Comuna</label>";
-                                        echo" <div id = 'comunas' >";
-                                        echo" <div class = 'col-sm-10'>";
-                                        echo" <select name = 'comunas' class = 'form-control m-b'>";
-                                        echo" <option value = '' >Seleccione una region</option>";
-                                        echo" </select>";
-                                        echo" </div>";
-                                        echo"<span class='help-block m-b-none'>Selecione una Comuna</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Sector</label>";
-                                        echo"<div class='col-sm-10'>";
-
-                                        $d->combosector();
-
-                                        echo"<span class='help-block m-b-none'>Sector</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-                                        ?>
-
-                                        <div class="form-group"><label class="col-sm-2 control-label">Fecha Delito</label>
-                                            <div class="col-sm-10"><input type="date" class="form-control" name="txtFecha" > <span class="help-block m-b-none">Ingrese Fecha del Incidente</span>
-                                            </div>
-                                        </div>
-                                        <div class="hr-line-dashed"></div>
-
-                                        <div class="form-group"><label class="col-sm-2 control-label">observaciones</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtObv" > <span class="help-block m-b-none">Ingrese obvservaciones sobre este Delito y/o Registro</span>
-                                            </div>
-                                        </div>
-                                        <div class="hr-line-dashed"></div>
-                                        <?php
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Delincuente</label>";
-                                        echo"<div class='col-sm-10'>";
-                                        $d->comboDeli();
-
-
-                                        echo"<span class='help-block m-b-none'>Seleccione el delincuente</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-                                        ?>
 
                                         <div class = "form-group">
                                             <div class = "col-sm-4 col-sm-offset-2">
@@ -393,57 +345,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                         </div>
                     </div>
                 </div>
-                <div class="wrapper wrapper-content animated fadeInDown">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Asociacion Delincuente y <small> Delitos.</small></h5>
-                                    <div class="ibox-tools">
-                                        <a class="collapse-link">
-                                            <i class="fa fa-chevron-up"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                                <div class="ibox-content">
-                                    <form method="get" action="" class="form-horizontal">
-                                       
-                                        <?php
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Delito</label>";
-                                        echo"<div class='col-sm-10'>";
-                                        $d->comboDelitos();
-
-
-                                        echo"<span class='help-block m-b-none'>Ingrese el codigo del delito</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-                                        
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Delincuente</label>";
-                                        echo"<div class='col-sm-10'>";
-                                        $d->comboDeli();
-
-
-                                        echo"<span class='help-block m-b-none'>Seleccione el delincuente</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-                                        ?>
-
-                                        <div class = "form-group">
-                                            <div class = "col-sm-4 col-sm-offset-2">
-                                                <button class = "btn btn-white" type = "submit">Cancelar</button>
-                                                <button class = "btn btn-primary" type = "submit">Guardar Cambios</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                
 
             </div>
         </div>
