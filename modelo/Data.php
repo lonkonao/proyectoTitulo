@@ -206,7 +206,7 @@ class Data {
         $sql = "insert into dl_delincuente values ('" . $rut . "','" . $nombre . "','" . $apeP . "','" . $apeM . "','" . $apodo . "','" . $domici . "','" . $reg . "','" . $comu . "','" . $fonoF . "','" . $fonoP . "','" . $fecha . "','" . $esta . "')";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
-            echo 'alert("Error, No se Realizo la accion ");location.href="../vista/delincuente.php?e=1"';
+          echo 'alert("Error, No se Realizo la accion ");location.href="../vista/delincuente.php?e=1"';
             echo '</script>';
         } else {
             echo '<script language="javascript">';
