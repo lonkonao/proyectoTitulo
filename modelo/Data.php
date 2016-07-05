@@ -90,7 +90,7 @@ class Data {
         $sql = "select u.user,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i  where u.institucion = i.id and u.estamento = es.id and u.estado = e.id ";
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo" <table class='table table-striped table-bordered table-hover dataTables-example'>";
+        echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";
         echo" <thead>";
         echo" <tr>";
         echo" <th>Usuario</th>";
@@ -197,6 +197,20 @@ class Data {
         } else {
             echo '<script language="javascript">';
             echo 'alert("Registrado Correctamente"); location.href="../vista/usuarios.php"';
+            echo '</script>';
+        }
+    }
+    
+    
+    public function insertDelincuentes($rut,$nombre,$apeP,$apeM,$apodo,$domici,$reg,$comu,$fonoF,$fonoP,$fecha,$esta) {
+        $sql = "insert into dl_delincuente values ('" . $rut . "','" . $nombre . "','" . $apeP . "','" . $apeM . "','" . $apodo . "','" . $domici . "','" . $reg . "','" . $comu . "','" . $fonoF . "','" . $fonoP . "','" . $fecha . "','" . $esta . "')";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+            echo 'alert("Error, No se Realizo la accion ");location.href="../vista/delincuente.php?e=1"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Registrado Correctamente"); location.href="../vista/delincuente.php"';
             echo '</script>';
         }
     }
@@ -354,6 +368,19 @@ class Data {
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
         echo "<select id='region' name='region' class='form-control m-b' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
+        }
+        echo "</select>";
+    }
+    
+    public function comboEstadoDel() {
+        $sql = "select id, nombre from dl_estado";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='estadoDeli' name='estadoDeli' class='form-control m-b' >";
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";

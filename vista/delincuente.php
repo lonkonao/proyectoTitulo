@@ -87,7 +87,7 @@
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='instituciones.php'><i class='fa fa-university'></i> Instituciones</a></li>";
-                                echo"                                <li><a href='#'><i class='fa fa-user'></i> Usuarios</a></li>";
+                                echo"                                <li><a href='usuarios.php'><i class='fa fa-user'></i> Usuarios</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
@@ -147,16 +147,16 @@
                                 break;
                             case "Operador":
 
-                                echo"<li class='active'>";
+                                echo"<li>";
                                 echo"    <a href='portal.php'><i class='fa fa-home'></i> <span class='nav-label'>Portal</span> <span class='fa arrow'></span></a>";
                                 echo"    <ul class='nav nav-second-level'>";
-                                echo"        <li class='active'><a href='portal.php'><i class='fa fa-home'></i>Inicio</a></li>";
+                                echo"        <li><a href='portal.php'><i class='fa fa-home'></i>Inicio</a></li>";
                                 echo"    </ul>";
                                 echo"                        </li>";
-                                echo"                        <li> ";
+                                echo"                        <li class='active'> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
-                                echo"                                <li><a href='#'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
+                                echo"                                <li class='active'><a href='#'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-gavel'></i> Delitos</a></li>";
                                 echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
 
@@ -278,7 +278,7 @@
                                     <form method="get" class="form-horizontal">
 
                                         <div class="form-group"><label class="col-sm-2 control-label">R.U.N</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtRut" data-mask='99.999.999-*' required placeholder='12.345.678-9'> 
+                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtRut" data-mask="99.999.999-*" placeholder="12.345.678-9" > 
                                                 <span class="help-block m-b-none">Ingrese R.U.N del Delincuente</span>
                                             </div>
                                         </div>
@@ -354,19 +354,29 @@
                                         <div class="hr-line-dashed"></div>
 
 
-                                        <div class="form-group" id="data_1"><label class="col-sm-2 control-label">Fecha Nacimiento</label>
-                                            <div class="input-group date">
-                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="03/04/2014">
+                                        <div class="form-group"><label class="col-sm-2 control-label">Fecha Nacimiento</label>
+                                            <div class="col-sm-10"><input type="date" class="form-control" name="txtFecha" > <span class="help-block m-b-none">Ingrese Nombre de la calle</span>
                                             </div>
                                         </div>
                                         <div class="hr-line-dashed"></div>
 
+                                        <?php
+                                        
+                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Estado</label>";
+                                        echo"<div class='col-sm-10'>";
 
+                                        $d->comboEstadoDel();
 
-                                        <div class="form-group">
-                                            <div class="col-sm-4 col-sm-offset-2">
-                                                <button class="btn btn-white" type="submit">Cancelar</button>
-                                                <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                        echo"<span class='help-block m-b-none'>Ingrese Estado</span>";
+                                        echo"</div>";
+                                        echo"</div>";
+                                        echo"<div class='hr-line-dashed'></div>";
+                                        ?>
+
+                                        <div class = "form-group">
+                                            <div class = "col-sm-4 col-sm-offset-2">
+                                                <button class = "btn btn-white" type = "submit">Cancelar</button>
+                                                <button class = "btn btn-primary" type = "submit">Guardar Cambios</button>
                                             </div>
                                         </div>
                                     </form>
@@ -386,18 +396,18 @@
 
 
 
-    <script src="../js/ajax.js"></script>
+    <script src = "../js/ajax.js"></script>
 
     <!-- Mainly scripts -->
     <script src="../js/jquery-2.1.1.js"></script>
 
     <script type="text/javascript">
-            $(document).ready(function () {
-                $('#region').change(function () {
-                    var id = $('#region').val();
-                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
-                });
-            });
+$(document).ready(function () {
+$('#region').change(function () {
+var id = $('#region').val();
+$('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+});
+});
     </script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -414,12 +424,12 @@
     <!-- Jquery Validate -->
     <script src="../js/plugins/validate/jquery.validate.min.js"></script>
     <script type="text/javascript">
-            $(document).ready(function () {
-                $('#region').change(function () {
-                    var id = $('#region').val();
-                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
-                });
-            });
+$(document).ready(function () {
+$('#region').change(function () {
+var id = $('#region').val();
+$('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+});
+});
     </script>
     <script>
         $(document).ready(function () {
@@ -545,9 +555,9 @@
     <script src="../js/ajax.js"></script>
     <!-- Chosen -->
     <script src="../js/plugins/chosen/chosen.jquery.js"></script>
-    
-       <!-- Data picker -->
-   <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- Data picker -->
+    <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
 
 
