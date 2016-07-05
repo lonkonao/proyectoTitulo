@@ -638,5 +638,18 @@ class Data {
             echo '</script>';
         }
     }
+    
+     public function borrarSector($id) {
+        $sql = "DELETE FROM conf_sector WHERE cod = '" . $id . "'";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/sectores.php"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Eliminado Correctamente"); location.href="../vista/sectores.php"';
+            echo '</script>';
+        }
+    }
 
 }
