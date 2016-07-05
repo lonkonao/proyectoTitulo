@@ -45,15 +45,16 @@ $estamentoUsuario = $_SESSION["estamUser"];
                     <ul class="nav" id="side-menu">
                         <li class="nav-header">
                             <div class="dropdown profile-element"> <span>
-                                    <img alt="image" class="img-circle" src="../img/profile_small.jpg" />
+                                    <div class="logo-element">
+                                PrevCrim
+                            </div>
                                 </span>
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                     <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"></strong>
-                                        </span> <span class="text-muted text-xs block">USER <b class="caret"></b></span> </span> </a>
+                                        </span> <span class="text-muted text-xs block"><?php $nombreUsuario?> <b class="caret"></b></span> </span> </a>
                                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                    <li><a href="profile.html">Perfil</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="login.html">Cerrar Sesion</a></li>
+                                    
+                                    <li><a href="../controlador/CerrarSession.php">Cerrar Sesion</a></li>
                                 </ul>
                             </div>
                             <div class="logo-element">
@@ -208,7 +209,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
 
 
                             <li>
-                                <a href="index.php">
+                                <a href="../controlador/CerrarSession.php">
                                     <i class="fa fa-sign-out"></i> Cerrar Sesión
                                 </a>
                             </li>
