@@ -201,6 +201,19 @@ class Data {
         }
     }
     
+    public function insertDelitoDelincuente($rut, $cod) {
+        $sql = "insert into delincuenteDelito values (null,'" . $rut . "','" . $cod . "')";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/delito.php?e=1"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Registrado Correctamente"); location.href="../vista/delito.php"';
+            echo '</script>';
+        }
+    }
+    
     
     public function insertDelincuentes($rut,$nombre,$apeP,$apeM,$apodo,$domici,$reg,$comu,$fonoF,$fonoP,$fecha,$esta) {
         $sql = "insert into dl_delincuente values ('" . $rut . "','" . $nombre . "','" . $apeP . "','" . $apeM . "','" . $apodo . "','" . $domici . "','" . $reg . "','" . $comu . "','" . $fonoF . "','" . $fonoP . "','" . $fecha . "','" . $esta . "')";
@@ -409,6 +422,18 @@ class Data {
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[0] . "|" . $resultado[1] . " " . $resultado[2] . " " . $resultado[3] . "</option>";
+        }
+        echo "</select>";
+    }
+    public function comboDelitos() {
+        $sql = "select cod from dat_delito;";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='comboDeli' name='ComboDeli' class='chosen' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[0] .  "</option>";
         }
         echo "</select>";
     }

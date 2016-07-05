@@ -3,20 +3,18 @@
 require_once('../modelo/Data.php');
 
 $d=new Data();
-//?txtCod=711393x&txtDescripcion=&txtDireccion=&region=1&comunas=&txtFecha=&txtObv=&ComboDeli=12.121.212-1
+//=&=&region=1&comunas=&txtFecha=&txtObv=&ComboDeli=12.121.212-1
 
-$rut = $_POST['txtRut'];
-$nombre=$_POST['txtNombre'];
-$apellidoP=$_POST['txtApellidoP'];
-$apellidoM = $_POST['txtApellidoM'];
-$apodo = $_POST['txtApodo'];
-$calle = $_POST['txtCalle'];
+$cod = $_POST['txtCod'];
+$descripcion=$_POST['txtDescripcion'];
+$direccion=$_POST['txtDireccion'];
+$comuna = $_POST['comunas'];
 $region = $_POST['region'];
-$comunas = $_POST['regionF'];
-$teleFijo = $_POST['txtTelefonoFijo'];
-$telePer = $_POST['txtCelu'];
+$sector = $_POST['sector'];
 $fecha = $_POST['txtFecha'];
-$estado = $_POST['estadoDeli'];
+$obv = $_POST['txtObv'];
+$rut=$_POST['ComboDeli'];
 
-$d->insertDelincuentes($rut, $nombre, $apellidoP, $apellidoM, $apodo, $calle, $region, $comunas, $teleFijo, $telePer, $fecha, $estado);
 
+$d->insertDelitos($cod, $descripcion, $direccion, $comuna, $region, $sector, $fecha, $obv);
+$d->insertDelitoDelincuente($rut, $cod);
