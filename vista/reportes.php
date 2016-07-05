@@ -83,26 +83,26 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"        <li ><a href='#'><i class='fa fa-line-chart'></i>Estadisticas Portal</a></li>";
                                 echo"    </ul>";
                                 echo"                        </li>";
-                                echo"                        <li class='active'> ";
+                                echo"                        <li> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='instituciones.php'><i class='fa fa-university'></i> Instituciones</a></li>";
                                 echo"                                <li><a href='usuarios.php'><i class='fa fa-user'></i> Usuarios</a></li>";
-                                echo"                                <li class='active'><a href='sectores.php'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
+                                echo"                                <li><a href='sectores.php'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
-                                echo"                        <li> ";
+                                echo"                        <li class='active'> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
-                                echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='delitos.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li class='active'><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
                                 echo"                        <li> ";
-                                echo"                            <a href='reportes.php'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <a href='#'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
                                 echo"                        </li>";
 
 
@@ -118,25 +118,26 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"        <li><a href='../portal.php'><i class='fa fa-home'></i>Inicio</a></li>";
                                 echo"    </ul>";
                                 echo"                        </li>";
-                                echo"                        <li class='active'> ";
+                                echo"                        <li> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
-                                echo"                                <li><a href='usuarios.php'><i class='fa fa-user'></i> Usuarios</a></li>";
-                                echo"                                <li class='active'><a href='sectores.php'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
+                                echo"                                <li><a href='#'><i class='fa fa-user'></i> Usuarios</a></li>";
+                                echo"                                <li><a href='sectores.php'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
-                                echo"                        <li> ";
+                                echo"                        <li class='active'> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
-                                echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='delitos.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li class='active'><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
+
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
                                 echo"                        <li> ";
-                                echo"                            <a href='reportes.php'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <a href='#'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
                                 echo"                        </li>";
 
 
@@ -152,12 +153,13 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"        <li><a href='../portal.php'><i class='fa fa-home'></i>Inicio</a></li>";
                                 echo"    </ul>";
                                 echo"                        </li>";
-                                echo"                        <li> ";
+                                echo"                        <li class='active'> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
-                                echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
-                                echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                             <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
+                                echo"                                <li><a href='delitos.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li class='active'><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
+
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
@@ -265,7 +267,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Ingreso <small> Sectores.</small></h5>
+                                    <h5>Ingreso <small> Parentesco.</small></h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -274,174 +276,79 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                     </div>
                                 </div>
                                 <div class="ibox-content">
-                                    
 
-                                        <?php
-                                        if (isset($_GET['cod'])) {
-                                            echo"<form method='post' action='../controlador/ControEditarSectores.php' class='form-horizontal'>";
-                                            echo"<div class='form-group'><label class='col-sm-2 control-label'>Codigo Sector</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtCod' value='".$_GET['cod']."' readonly > 
-                                                <span class='help-block m-b-none'>Asigne un Codigo para el sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Nombre del Sector</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNombre' value='".$_GET['nombre']."' > 
-                                                <span class='help-block m-b-none'>Asigne un Nuevo Nombre para el sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Norte</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNorte' value='".$_GET['calleN']."' > 
-                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante norte</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                         
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Oeste</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtOeste' value='".$_GET['calleO']."' > 
-                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante Oeste</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                         
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Sur</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtSur' value='".$_GET['calleS']."' > 
-                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante Sur</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                         
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Este</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtEste' value='".$_GET['calleE']."' > 
-                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante Este</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Color</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtColor' value='".$_GET['color']."' > 
-                                                <span class='help-block m-b-none'>ingrese un Nuevo  color Para el Sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                           
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Descripcion</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtDescripcion' value='".$_GET['descripcion']."'> 
-                                                <span class='help-block m-b-none'>Descripcion del Sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>";
-                                        }
-                                        
-                                        else
-                                            
-                                        {
-                                            echo"<form method='post' action='../controlador/ControAgregarSectores.php' class='form-horizontal'>";
-                                            echo"<div class='form-group'><label class='col-sm-2 control-label'>Codigo Sector</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtCod' > 
-                                                <span class='help-block m-b-none'>Asigne un Codigo para el sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Nombre del Sector</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNombre' > 
-                                                <span class='help-block m-b-none'>Asigne un Nombre para el sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Norte</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNorte' > 
-                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante norte</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                         
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Oeste</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtOeste' > 
-                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante Oeste</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                         
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Sur</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtSur' > 
-                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante Sur</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                         
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Este</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtEste' > 
-                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante Este</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Color</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtColor' > 
-                                                <span class='help-block m-b-none'>ingrese un color Para el Sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>
-                                        
-                                           
-                                        <div class='form-group'><label class='col-sm-2 control-label'>Descripcion</label>
-                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtDescripcion' > 
-                                                <span class='help-block m-b-none'>Descripcion del Sector</span>
-                                            </div>
-                                        </div>
-                                        <div class='hr-line-dashed'></div>";
-                                        }
-                                        ?>
+                                    <?php
+                                    require_once '../modelo/Data.php';
+                                    $d = new Data();
+                                    echo"<form method='post' action='../controlador/ControAgregarParentesco.php' class='form-horizontal'>
+";
+                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Este Delincuente</label>";
+                                    echo"<div class='col-sm-10'>";
+                                    $d->comboDeli();
 
 
+                                    echo"<span class='help-block m-b-none'>Es</span>";
+                                    echo"</div>";
+                                    echo"</div>";
+                                    echo"<div class='hr-line-dashed'></div>";
 
-                                        <div class = "form-group">
-                                            <div class = "col-sm-4 col-sm-offset-2">
-                                                <button class = "btn btn-white" type = "submit">Cancelar</button>
-                                                <button class = "btn btn-primary" type = "submit">Guardar Cambios</button>
-                                            </div>
+                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Pariente</label>";
+                                    echo"<div class='col-sm-10'>";
+                                    $d->comboParentesco();
+
+
+                                    echo"<span class='help-block m-b-none'>De</span>";
+                                    echo"</div>";
+                                    echo"</div>";
+                                    echo"<div class='hr-line-dashed'></div>";
+
+                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Este Delincuente</label>";
+                                    echo"<div class='col-sm-10'>";
+                                    $d->comboDeli2();
+
+
+                                    echo"<span class='help-block m-b-none'>Seleccione el delincuente</span>";
+                                    echo"</div>";
+                                    echo"</div>";
+                                    echo"<div class='hr-line-dashed'></div>";
+                                    ?>
+
+
+                                    <div class = "form-group">
+                                        <div class = "col-sm-4 col-sm-offset-2">
+                                            <button class = "btn btn-white" type = "submit">Cancelar</button>
+                                            <button class = "btn btn-primary" type = "submit">Guardar Cambios</button>
                                         </div>
+                                    </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-10">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Lista de Sectores </h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
+                </div>
+                <div class="wrapper wrapper-content animated fadeInDown">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Lista <small> Parentesco.</small></h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
 
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <?php
+                                    $d->listaParentesco($estamentoUsuario);
+                                    ?>
                                 </div>
                             </div>
-                            <div class="ibox-content">
-                                <?php
-                                require_once '../modelo/Data.php';
-                                $d = new Data();
-                                $d->listaSectores();
-                                ?>
-
-                            </div>
                         </div>
+
                     </div>
                 </div>
-
 
             </div>
         </div>
@@ -507,7 +414,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
         <script>
             $(document).ready(function () {
                 $('.dataTables-example').dataTable({
-                    responsive: true,
+                    //                    responsive: true,
                     //                    "dom": 'T<"clear">lfrtip',
                     //                    "tableTools": {
                     //                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"

@@ -85,7 +85,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                            </ul>";
                                 echo"                        </li>";
                                 echo"                        <li> ";
-                                echo"                            <a href='#'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
+                                echo"                            <a href='reportes.php'><em class='fa fa-print'></em> <span class='nav-label'>Reportes</span> <span class='fa arrow'></span></a> ";
                                 echo"                        </li>";
 
 
