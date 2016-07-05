@@ -3,10 +3,7 @@
 require_once('../modelo/Data.php');
 
 $d=new Data();
-
-
-
-
+//?txtCod=711393x&txtDescripcion=&txtDireccion=&region=1&comunas=&txtFecha=&txtObv=&ComboDeli=12.121.212-1
 
 $rut = $_POST['txtRut'];
 $nombre=$_POST['txtNombre'];
