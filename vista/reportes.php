@@ -264,10 +264,10 @@ $estamentoUsuario = $_SESSION["estamUser"];
                 <!--   </div> -->
                 <div class="wrapper wrapper-content animated fadeInDown">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-15">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Ingreso <small> Parentesco.</small></h5>
+                                    <h5>Reportes <small> Y busquedas</small></h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -276,80 +276,17 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                     </div>
                                 </div>
                                 <div class="ibox-content">
-
                                     <?php
                                     require_once '../modelo/Data.php';
                                     $d = new Data();
-                                    echo"<form method='post' action='../controlador/ControAgregarParentesco.php' class='form-horizontal'>
-";
-                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Este Delincuente</label>";
-                                    echo"<div class='col-sm-10'>";
-                                    $d->comboDeli();
 
-
-                                    echo"<span class='help-block m-b-none'>Es</span>";
-                                    echo"</div>";
-                                    echo"</div>";
-                                    echo"<div class='hr-line-dashed'></div>";
-
-                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Pariente</label>";
-                                    echo"<div class='col-sm-10'>";
-                                    $d->comboParentesco();
-
-
-                                    echo"<span class='help-block m-b-none'>De</span>";
-                                    echo"</div>";
-                                    echo"</div>";
-                                    echo"<div class='hr-line-dashed'></div>";
-
-                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Este Delincuente</label>";
-                                    echo"<div class='col-sm-10'>";
-                                    $d->comboDeli2();
-
-
-                                    echo"<span class='help-block m-b-none'>Seleccione el delincuente</span>";
-                                    echo"</div>";
-                                    echo"</div>";
-                                    echo"<div class='hr-line-dashed'></div>";
+                                    $d->listaDelincuentes();
                                     ?>
-
-
-                                    <div class = "form-group">
-                                        <div class = "col-sm-4 col-sm-offset-2">
-                                            <button class = "btn btn-white" type = "submit">Cancelar</button>
-                                            <button class = "btn btn-primary" type = "submit">Guardar Cambios</button>
-                                        </div>
-                                    </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="wrapper wrapper-content animated fadeInDown">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Lista <small> Parentesco.</small></h5>
-                                    <div class="ibox-tools">
-                                        <a class="collapse-link">
-                                            <i class="fa fa-chevron-up"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                                <div class="ibox-content">
-                                    <?php
-                                    $d->listaParentesco($estamentoUsuario);
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
         </div>
 
@@ -414,11 +351,12 @@ $estamentoUsuario = $_SESSION["estamUser"];
         <script>
             $(document).ready(function () {
                 $('.dataTables-example').dataTable({
-                    //                    responsive: true,
-                    //                    "dom": 'T<"clear">lfrtip',
-                    //                    "tableTools": {
-                    //                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
-                    //                    },
+                
+                                        responsive: true,
+                                        "dom": 'T<"clear">lfrtip',
+                                        "tableTools": {
+                                           "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                                        },
                     language: {
                         "sProcessing": "Procesando...",
                         "sLengthMenu": "Mostrar _MENU_ registros",

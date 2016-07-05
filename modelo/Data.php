@@ -143,6 +143,49 @@ class Data {
         echo" </tbody>";
         echo" </table>";
     }
+    
+    public function listaDelincuentes() {
+        $sql = "    select d.rut,d.nombre,d.apellidoP,d.apellidoM,d.apodo,d.domicilioP,r.nombre,c.nombre,d.fono_fijo,d.fono_p,d.fecha_nacimiento,e.nombre from dl_delincuente d,regiones r,comunas c ,dl_estado e where e.id = d.estado and r.codigo = d.region and c.codigoInterno = d.comuna ";
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";
+        echo" <thead>";
+        echo" <tr>";
+        echo" <th>R.U.N</th>";
+        echo" <th>Nombres</th>";
+        echo" <th>Apellidos</th>";
+        echo" <th>Apodo</th>";
+        echo" <th>Domicilio</th>";
+        echo" <th>Region</th>";
+        echo" <th>Comuna</th>";
+        echo" <th>Telefono Fijo</th>";
+        echo" <th>Telefono Celular</th>";
+        echo" <th>Fecha Nacimiento</th>";
+        echo" <th>Estado</th>";
+        echo" </tr>";
+        echo" </thead>";
+        echo" <tbody>";
+        while ($row = $res->fetch_array()) {
+            echo" <tr style='color: #00598e;font-weight: bold;'>";
+            echo" <td>" . $row[0] . "</td>";
+            echo" <td>" . $row[1] . "</td>";
+            echo" <td>" . $row[2] . " " . $row[3] . "</td>";
+           
+            echo" <td>" . $row[4] . "</td>";
+            echo" <td>" . $row[5] . "</td>";
+            echo" <td>" . $row[6] . "</td>";
+            echo" <td>" . $row[7] . "</td>";
+            echo" <td>" . $row[8] . "</td>";
+            echo" <td>" . $row[9] . "</td>";
+            echo" <td>" . $row[10] . "</td>";
+            echo" <td>" . $row[11] . "</td>";
+            echo" </tr>";
+        }
+        echo" </tbody>";
+        echo" </table>";
+    }
+    
+
 
     public function listaUsuariosF($estamento, $filtro) {
         $sql = "select u.user,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i where u.institucion = i.id and u.estamento = es.id and u.estado = e.id and i.nombre = '" . $filtro . "'";
@@ -429,6 +472,19 @@ switch ($estamento) {
             echo '</script>';
         }
     }
+    
+    public function insertUbicaciones($rut, $direccion, $comuna,$region,$sector) {
+        $sql = "insert into historialubicaciones values (null,'" . $rut . "','" . $direccion . "','" . $comuna . "','" . $region . "','" . $sector . "')";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/delincuente.php?e=1"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Registrado Correctamente"); location.href="../vista/delincuente.php"';
+            echo '</script>';
+        }
+    }
 
     //    
     //     
@@ -466,7 +522,7 @@ switch ($estamento) {
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo "<select id='region' name='estado' class='form-control m-b' >";
+        echo "<select id='region' name='estado' class='form-control m-b'  >";
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
@@ -580,7 +636,7 @@ switch ($estamento) {
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo "<select id='region' name='region' class='form-control m-b' >";
+        echo "<select id='region' name='region' class='form-control m-b' required>";
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
@@ -593,7 +649,7 @@ switch ($estamento) {
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo "<select id='estadoDeli' name='estadoDeli' class='form-control m-b' >";
+        echo "<select id='estadoDeli' name='estadoDeli' class='form-control m-b' required>";
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";

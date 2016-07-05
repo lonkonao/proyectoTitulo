@@ -20,6 +20,8 @@ $teleFijo = $_POST['txtTelefonoFijo'];
 $telePer = $_POST['txtCelu'];
 $fecha = $_POST['txtFecha'];
 $estado = $_POST['estadoDeli'];
+$sector = $_POST['sector'];
 
 $d->insertDelincuentes($rut, $nombre, $apellidoP, $apellidoM, $apodo, $calle, $region, $comunas, $teleFijo, $telePer, $fecha, $estado);
 
+$d->insertUbicaciones($rut, $calle, $comunas, $region, $sector);
