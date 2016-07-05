@@ -265,7 +265,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Ingreso <small> Delitos.</small></h5>
+                                    <h5>Ingreso <small> Sectores.</small></h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -422,7 +422,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                     <div class="col-lg-10">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>Lista de Usuarios </h5>
+                                <h5>Lista de Sectores </h5>
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>

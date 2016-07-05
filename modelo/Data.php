@@ -182,7 +182,7 @@ class Data {
             echo " <ul class = 'dropdown-menu' role = 'menu'>";
 
             echo " <li><a href='sectores.php?cod=" . $row[0] . "&nombre=" . $row[1] . "&calleN=" . $row[2] . "&calleO=" . $row[3] . "&calleS=" . $row[4] . "&calleE=" . $row[5] . "&color=" . $row[6] . "&descripcion=" . $row[7] . "'> Editar Sector</a></li>";
-            echo " <li><a onclick = EliminarSector('$row[1]')> Eliminar</a></li>";
+            echo " <li><a onclick = EliminarSector('$row[0]')> Eliminar</a></li>";
 
 
 
