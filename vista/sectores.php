@@ -97,7 +97,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
                                 echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
@@ -131,7 +131,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
                                 echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
@@ -156,8 +156,8 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Ingresos Datos</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
-                                echo"                                <li class='active'><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
+                                echo"                                <li><a href='parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";

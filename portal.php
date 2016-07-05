@@ -80,7 +80,7 @@
                                 echo"                            <ul class='nav nav-second-level'>";
                                 echo"                                <li><a href='./vista/delincuente.php'><i class='fa fa-user-secret'></i> Delincuente</a></li>";
                                 echo"                                <li><a href='./vista/delito.php'><i class='fa fa-gavel'></i> Delitos</a></li>";
-                                echo"                                <li><a href='#'><i class='fa fa-users'></i> Parentesco</a></li>";
+                                echo"                                <li><a href='./vista/parentesco.php'><i class='fa fa-users'></i> Parentesco</a></li>";
 
                                 echo"                            </ul>";
                                 echo"                        </li>";
