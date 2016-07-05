@@ -342,21 +342,21 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                         ?>
 
                                         <div class="form-group"><label class="col-sm-2 control-label">Telefono Fijo</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtTelefonoFijo" ><span class="help-block m-b-none">Ingrese Nombre de la calle</span>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtTelefonoFijo" ><span class="help-block m-b-none">Ingrese Telefono Fijo cod+Numero</span>
                                             </div>
                                         </div>
                                         <div class="hr-line-dashed"></div>
 
 
                                         <div class="form-group"><label class="col-sm-2 control-label">Telefono Movil</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtCelu" data-mask="(+569)99999999"> <span class="help-block m-b-none">Ingrese Nombre de la calle</span>
+                                            <div class="col-sm-10"><input type="text" class="form-control" name="txtCelu" data-mask="(+569)99999999"> <span class="help-block m-b-none">Ingrese Telefono Celular 9+Numero</span>
                                             </div>
                                         </div>
                                         <div class="hr-line-dashed"></div>
 
 
                                         <div class="form-group"><label class="col-sm-2 control-label">Fecha Nacimiento</label>
-                                            <div class="col-sm-10"><input type="date" class="form-control" name="txtFecha" > <span class="help-block m-b-none">Ingrese Nombre de la calle</span>
+                                            <div class="col-sm-10"><input type="date" class="form-control" name="txtFecha" > <span class="help-block m-b-none">Ingrese Fecha de Nacimiento</span>
                                             </div>
                                         </div>
                                         <div class="hr-line-dashed"></div>

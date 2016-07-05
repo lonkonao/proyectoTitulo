@@ -214,6 +214,18 @@ class Data {
             echo '</script>';
         }
     }
+    public function insertDelitos($cod,$descripcion,$direccion,$comuna,$region,$sector,$fecha,$obv) {
+        $sql = "insert into dat_delito values ('" . $cod . "','" . $descripcion . "','" . $direccion . "','" . $comuna . "','" . $region . "','" . $sector . "','" . $fecha . "','" . $obv . "')";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+          echo 'alert("Error, No se Realizo la accion ");location.href="../vista/delito.php?e=1"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Registrado Correctamente"); location.href="../vista/delito.php"';
+            echo '</script>';
+        }
+    }
 
     //    
     //     
@@ -397,6 +409,19 @@ class Data {
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[0] . "|" . $resultado[1] . " " . $resultado[2] . " " . $resultado[3] . "</option>";
+        }
+        echo "</select>";
+    }
+    
+    public function combosector() {
+        $sql = "select cod, nombre from conf_sector";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='sector' name='sector' class='form-control m-b' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
         }
         echo "</select>";
     }
