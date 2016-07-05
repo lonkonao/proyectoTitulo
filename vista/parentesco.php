@@ -282,27 +282,27 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                     $d = new Data();
                                     echo"<form method='post' action='../controlador/ControAgregarParentesco.php' class='form-horizontal'>
 ";
-                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Delincuente</label>";
+                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Este Delincuente</label>";
                                     echo"<div class='col-sm-10'>";
                                     $d->comboDeli();
 
 
-                                    echo"<span class='help-block m-b-none'>Seleccione el delincuente</span>";
+                                    echo"<span class='help-block m-b-none'>Es</span>";
                                     echo"</div>";
                                     echo"</div>";
                                     echo"<div class='hr-line-dashed'></div>";
 
-                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Delincuente</label>";
+                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Pariente</label>";
                                     echo"<div class='col-sm-10'>";
                                     $d->comboParentesco();
 
 
-                                    echo"<span class='help-block m-b-none'>Seleccione el delincuente</span>";
+                                    echo"<span class='help-block m-b-none'>De</span>";
                                     echo"</div>";
                                     echo"</div>";
                                     echo"<div class='hr-line-dashed'></div>";
 
-                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Delincuente</label>";
+                                    echo"<div class='form-group'><label class='col-sm-2 control-label'>Este Delincuente</label>";
                                     echo"<div class='col-sm-10'>";
                                     $d->comboDeli2();
 
@@ -331,7 +331,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Asociacion Delincuente y <small> Delitos.</small></h5>
+                                    <h5>Lista <small> Parentesco.</small></h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -340,37 +340,9 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                     </div>
                                 </div>
                                 <div class="ibox-content">
-                                    <form method="get" action="" class="form-horizontal">
-
-                                        <?php
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Delito</label>";
-                                        echo"<div class='col-sm-10'>";
-                                        $d->comboDelitos();
-
-
-                                        echo"<span class='help-block m-b-none'>Ingrese el codigo del delito</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-
-                                        echo"<div class='form-group'><label class='col-sm-2 control-label'>Delincuente</label>";
-                                        echo"<div class='col-sm-10'>";
-                                        $d->comboDeli();
-
-
-                                        echo"<span class='help-block m-b-none'>Seleccione el delincuente</span>";
-                                        echo"</div>";
-                                        echo"</div>";
-                                        echo"<div class='hr-line-dashed'></div>";
-                                        ?>
-
-                                        <div class = "form-group">
-                                            <div class = "col-sm-4 col-sm-offset-2">
-                                                <button class = "btn btn-white" type = "submit">Cancelar</button>
-                                                <button class = "btn btn-primary" type = "submit">Guardar Cambios</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <?php
+                                    $d->listaParentesco($estamentoUsuario);
+                                    ?>
                                 </div>
                             </div>
                         </div>

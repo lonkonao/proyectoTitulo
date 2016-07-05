@@ -143,8 +143,9 @@ class Data {
         echo" </tbody>";
         echo" </table>";
     }
-    public function listaUsuariosF($estamento,$filtro) {
-        $sql = "select u.user,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i where u.institucion = i.id and u.estamento = es.id and u.estado = e.id and i.nombre = '".$filtro."'";
+
+    public function listaUsuariosF($estamento, $filtro) {
+        $sql = "select u.user,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i where u.institucion = i.id and u.estamento = es.id and u.estado = e.id and i.nombre = '" . $filtro . "'";
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
         echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";
@@ -240,6 +241,61 @@ class Data {
 
             echo " <li><a href='sectores.php?cod=" . $row[0] . "&nombre=" . $row[1] . "&calleN=" . $row[2] . "&calleO=" . $row[3] . "&calleS=" . $row[4] . "&calleE=" . $row[5] . "&color=" . $row[6] . "&descripcion=" . $row[7] . "'> Editar Sector</a></li>";
             echo " <li><a onclick = EliminarSector('$row[0]')> Eliminar</a></li>";
+
+
+
+            echo " </ul>";
+            echo " </div>";
+            echo"</td>";
+            echo" </tr>";
+        }
+        echo" </tbody>";
+        echo" </table>";
+    }
+
+    public function listaParentesco($estamento) {
+        $sql = "select p.id, p.rut1,tp.parentesco,p.rut2 from parentensco p , tipoparentesco tp where tp.id = p.parentesco";
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";
+        echo" <thead>";
+        echo" <tr>";
+        echo" <th>Id</th>";
+        echo" <th>R.U.N</th>";
+        echo" <th>Tipo Parentensco</th>";
+        echo" <th>R.U.N</th>";
+        echo" <th>Acciones</th>";
+        echo" </tr>";
+        echo" </thead>";
+        echo" <tbody>";
+        while ($row = $res->fetch_array()) {
+            echo" <tr style='color: #00598e;font-weight: bold;'>";
+            echo" <td>" . $row[0] . "</td>";
+            echo" <td>" . $row[1] . "</td>";
+            echo" <td>" . $row[2] . "</td>";
+            echo" <td>" . $row[3] . "</td>";
+            echo" <td>";
+            echo"<div class='btn-group' role='group'>";
+            echo" <button type = 'button' class = 'btn btn-danger dropdown-toggle' data-toggle = 'dropdown' aria-haspopup = 'true' aria-expanded = 'false'>";
+            echo"  ACCION";
+            echo" <span class = 'caret'></span>";
+            echo" </button>";
+            echo " <ul class = 'dropdown-menu' role = 'menu'>";
+switch ($estamento) {
+                case 'Administrador General':
+                   echo " <li><a onclick = EliminarParentesco('$row[0]')> Eliminar</a></li>";
+
+                    break;
+                case 'Jefe de Zona':
+                    echo " <li><a onclick = EliminarParentesco('$row[0]')> Eliminar</a></li>";
+                    break;
+
+                default:
+                    echo " <li>Sin Permisos</li>";
+                    break;
+            }
+
+           
 
 
 
@@ -360,8 +416,8 @@ class Data {
             echo '</script>';
         }
     }
-    
-     public function insertParentesco($rut1, $parentesco, $rut2) {
+
+    public function insertParentesco($rut1, $parentesco, $rut2) {
         $sql = "insert into parentensco values (null,'" . $rut1 . "','" . $parentesco . "','" . $rut2 . "')";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
@@ -558,7 +614,7 @@ class Data {
         }
         echo "</select>";
     }
-    
+
     public function comboDeli2() {
         $sql = "select rut,nombre,apellidoP,apellidoM from dl_delincuente;";
 
@@ -571,7 +627,7 @@ class Data {
         }
         echo "</select>";
     }
-    
+
     public function comboParentesco() {
         $sql = "select * from tipoparentesco;";
 
@@ -679,8 +735,8 @@ class Data {
             echo '</script>';
         }
     }
-    
-     public function upSectores($cod, $nombre, $calle_n, $calle_o, $calle_s, $calle_e, $color, $descripcion) {
+
+    public function upSectores($cod, $nombre, $calle_n, $calle_o, $calle_s, $calle_e, $color, $descripcion) {
         $sql = "UPDATE conf_sector set nombre='" . $nombre . "',calle_n='" . $calle_n . "',calle_o='" . $calle_o . "',calle_s='" . $calle_s . "',calle_e='" . $calle_e . "',color='" . $color . "',descripcion='" . $descripcion . "' where cod='" . $cod . "'";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
@@ -735,7 +791,20 @@ class Data {
         }
     }
     
-     public function borrarSector($id) {
+    public function borrarParentesco($id) {
+        $sql = "DELETE FROM parentensco WHERE id = '" . $id . "'";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/usuario.php?e=1"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Eliminado Correctamente"); location.href="../vista/usuario.php"';
+            echo '</script>';
+        }
+    }
+
+    public function borrarSector($id) {
         $sql = "DELETE FROM conf_sector WHERE cod = '" . $id . "'";
         if (!$this->c->ejecutar($sql)) {
             echo '<script language="javascript">';
