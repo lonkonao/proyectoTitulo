@@ -143,6 +143,63 @@ class Data {
         echo" </tbody>";
         echo" </table>";
     }
+    public function listaUsuariosF($estamento,$filtro) {
+        $sql = "select u.user,u.rut,u.nombre,u.apellidos,u.fe_habilitacion,e.nombre,es.nombre,i.nombre from us_perfil u,us_estado e,us_estamento es,us_institucion i where u.institucion = i.id and u.estamento = es.id and u.estado = e.id and i.nombre = '".$filtro."'";
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";
+        echo" <thead>";
+        echo" <tr>";
+        echo" <th>Usuario</th>";
+        echo" <th>R.U.N</th>";
+        echo" <th>Nombres</th>";
+        echo" <th>Apellidos</th>";
+        echo" <th>Habilitacion</th>";
+        echo" <th>Estado</th>";
+        echo" <th>Estamento</th>";
+        echo" <th>Institucion</th>";
+        echo" <th>Acciones</th>";
+        echo" </tr>";
+        echo" </thead>";
+        echo" <tbody>";
+        while ($row = $res->fetch_array()) {
+            echo" <tr style='color: #00598e;font-weight: bold;'>";
+            echo" <td>" . $row[0] . "</td>";
+            echo" <td>" . $row[1] . "</td>";
+            echo" <td>" . $row[2] . "</td>";
+            echo" <td>" . $row[3] . "</td>";
+            echo" <td>" . $row[4] . "</td>";
+            echo" <td>" . $row[5] . "</td>";
+            echo" <td>" . $row[6] . "</td>";
+            echo" <td>" . $row[7] . "</td>";
+            echo" <td>";
+            echo"<div class='btn-group' role='group'>";
+            echo" <button type = 'button' class = 'btn btn-danger dropdown-toggle' data-toggle = 'dropdown' aria-haspopup = 'true' aria-expanded = 'false'>";
+            echo"  ACCION";
+            echo" <span class = 'caret'></span>";
+            echo" </button>";
+            echo " <ul class = 'dropdown-menu' role = 'menu'>";
+            switch ($estamento) {
+                case 'Administrador General':
+                    echo " <li><a href='usuarios.php?usuario=" . $row[0] . "&rut=" . $row[1] . "&nom=" . $row[2] . "&ape=" . $row[3] . "&hab=" . $row[4] . "&es=" . $row[5] . "&esta=" . $row[6] . "&institu=" . $row[7] . "'> Editar Usuario</a></li>";
+                    echo " <li><a onclick = EliminarUsuario('$row[1]')> Eliminar</a></li>";
+                    echo " <li><a onclick = Pass('$row[1]','$row[0]')> Cambiar Contraseña</a></li>";
+
+                    break;
+
+                default:
+                    echo " <li>Sin Permisos</li>";
+                    break;
+            }
+
+            echo " </ul>";
+            echo " </div>";
+            echo"</td>";
+            echo" </tr>";
+        }
+        echo" </tbody>";
+        echo" </table>";
+    }
 
     public function listaSectores() {
         $sql = "select * from conf_sector ";
@@ -300,6 +357,19 @@ class Data {
         } else {
             echo '<script language="javascript">';
             echo 'alert("Registrado Correctamente"); location.href="../vista/delito.php"';
+            echo '</script>';
+        }
+    }
+    
+     public function insertParentesco($rut1, $parentesco, $rut2) {
+        $sql = "insert into parentensco values (null,'" . $rut1 . "','" . $parentesco . "','" . $rut2 . "')";
+        if (!$this->c->ejecutar($sql)) {
+            echo '<script language="javascript">';
+            echo 'alert("Error, No se Realizo la accion");location.href="../vista/parentesco.php?e=1"';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Registrado Correctamente"); location.href="../vista/parentesco.php"';
             echo '</script>';
         }
     }
@@ -485,6 +555,32 @@ class Data {
         while ($resultado = $res->fetch_array()) {
 
             echo "<option value='" . $resultado[0] . "'> " . $resultado[0] . "|" . $resultado[1] . " " . $resultado[2] . " " . $resultado[3] . "</option>";
+        }
+        echo "</select>";
+    }
+    
+    public function comboDeli2() {
+        $sql = "select rut,nombre,apellidoP,apellidoM from dl_delincuente;";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='comboDeli' name='ComboDeli2' class='chosen' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[0] . "|" . $resultado[1] . " " . $resultado[2] . " " . $resultado[3] . "</option>";
+        }
+        echo "</select>";
+    }
+    
+    public function comboParentesco() {
+        $sql = "select * from tipoparentesco;";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='comboDeli' name='ComboParen' class='chosen' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[1] . "</option>";
         }
         echo "</select>";
     }

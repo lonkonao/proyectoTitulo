@@ -468,7 +468,17 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 </div>
                                 <div class="ibox-content">
                                     <?php
-                                    $d->listaUsuarios($estamentoUsuario);
+                                    switch ($estamentoUsuario) {
+                                        case 'Administrador General':
+
+                                            $d->listaUsuarios($estamentoUsuario);
+                                            break;
+
+                                        default:
+                                            $d->listaUsuariosF($estamentoUsuario,$institucionUsuario);
+                                            break;
+                                    }
+                                    
                                     ?>
 
                                 </div>
