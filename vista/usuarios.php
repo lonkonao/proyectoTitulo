@@ -404,7 +404,7 @@
                                         echo"<div class='col-sm-10'>";
                                         switch ($estamentoUsuario) {
                                             case "Administrador General":
-                                                $d->comboEstado();
+                                                $d->comboEstamentos();
 
 
                                                 break;

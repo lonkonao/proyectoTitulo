@@ -387,6 +387,19 @@ class Data {
         }
         echo "</select>";
     }
+    
+    public function comboDeli() {
+        $sql = "select rut,nombre,apellidoP,apellidoM from dl_delincuente;";
+
+        $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
+        $res = $this->c->ejecutar($sql);
+        echo "<select id='comboDeli' name='ComboDeli' class='chosen' >";
+        while ($resultado = $res->fetch_array()) {
+
+            echo "<option value='" . $resultado[0] . "'> " . $resultado[0] . "|" . $resultado[1] . " " . $resultado[2] . " " . $resultado[3] . "</option>";
+        }
+        echo "</select>";
+    }
 
 
     //    

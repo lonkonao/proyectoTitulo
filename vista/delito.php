@@ -283,8 +283,15 @@
                                             </div>
                                         </div>
                                         <div class="hr-line-dashed"></div>
-
+                                        <?php
+                                                                require_once '../modelo/Data.php';
+                                                                $d = new Data();
+                                                                
+                                                                $d->comboDeli();
                                         
+                                        
+                                        ?>
+
                                         <div class = "form-group">
                                             <div class = "col-sm-4 col-sm-offset-2">
                                                 <button class = "btn btn-white" type = "submit">Cancelar</button>
@@ -314,12 +321,12 @@
     <script src="../js/jquery-2.1.1.js"></script>
 
     <script type="text/javascript">
-$(document).ready(function () {
-$('#region').change(function () {
-var id = $('#region').val();
-$('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
-});
-});
+            $(document).ready(function () {
+                $('#region').change(function () {
+                    var id = $('#region').val();
+                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                });
+            });
     </script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -336,46 +343,17 @@ $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
     <!-- Jquery Validate -->
     <script src="../js/plugins/validate/jquery.validate.min.js"></script>
     <script type="text/javascript">
-$(document).ready(function () {
-$('#region').change(function () {
-var id = $('#region').val();
-$('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
-});
-});
+            $(document).ready(function () {
+                $('#region').change(function () {
+                    var id = $('#region').val();
+                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                });
+            });
     </script>
     <script>
         $(document).ready(function () {
-
-
-
-            var elem = document.querySelector('.js-switch');
-            var switchery = new Switchery(elem, {color: '#1AB394'});
-
-            var elem_2 = document.querySelector('.js-switch_2');
-            var switchery_2 = new Switchery(elem_2, {color: '#ED5565'});
-
-            var elem_3 = document.querySelector('.js-switch_3');
-            var switchery_3 = new Switchery(elem_3, {color: '#1AB394'});
-
-
-
-
+            $(".chosen").chosen();
         });
-        var config = {
-            '.chosen-select': {},
-            '.chosen-select-deselect': {allow_single_deselect: true},
-            '.chosen-select-no-single': {disable_search_threshold: 10},
-            '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
-            '.chosen-select-width': {width: "95%"}
-        }
-        for (var selector in config) {
-            $(selector).chosen(config[selector]);
-        }
-
-
-
-
-
     </script>
 
     <script>
