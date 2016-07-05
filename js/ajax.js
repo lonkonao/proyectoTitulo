@@ -34,6 +34,22 @@ function Eliminar(id) {
         //Sin acciones
     }
 }
+function EliminarSector(id) {
+    if (confirm("¿En realidad desea eliminar este Sector?")) {
+        ajax = objetoAjax();
+        ajax.open("POST", "../controlador/ControEliminarSectores.php", true);
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+                alert('El registro fue eliminado con exito!');
+                window.location.reload(true);
+            }
+        }
+        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        ajax.send("id=" + id)
+    } else {
+        //Sin acciones
+    }
+}
 
 function EliminarUsuario(id) {
     if (confirm("En realidad desea eliminar esta Usuario?")) {
