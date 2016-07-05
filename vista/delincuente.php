@@ -1,16 +1,17 @@
+<?php
+include_once '../controlador/ControSeguridad.php';
+
+$userUsuario = $_SESSION["nombreUser"];
+$rutUsuario = $_SESSION["rutUser"];
+$nombreUsuario = $_SESSION["nomUser"];
+$apellidoUsuario = $_SESSION["apelliUser"];
+$institucionUsuario = $_SESSION["instiUser"];
+$estadoUsuario = $_SESSION["estadoUser"];
+$estamentoUsuario = $_SESSION["estamUser"];
+?>
 <!DOCTYPE html>
 <html>
-    <?php
-    include_once '../controlador/ControSeguridad.php';
 
-    $userUsuario = $_SESSION["nombreUser"];
-    $rutUsuario = $_SESSION["rutUser"];
-    $nombreUsuario = $_SESSION["nomUser"];
-    $apellidoUsuario = $_SESSION["apelliUser"];
-    $institucionUsuario = $_SESSION["instiUser"];
-    $estadoUsuario = $_SESSION["estadoUser"];
-    $estamentoUsuario = $_SESSION["estamUser"];
-    ?>
     <head>
 
         <meta charset="utf-8">
@@ -361,7 +362,6 @@
                                         <div class="hr-line-dashed"></div>
 
                                         <?php
-                                        
                                         echo"<div class='form-group'><label class='col-sm-2 control-label'>Estado</label>";
                                         echo"<div class='col-sm-10'>";
 
@@ -402,12 +402,12 @@
     <script src="../js/jquery-2.1.1.js"></script>
 
     <script type="text/javascript">
-$(document).ready(function () {
-$('#region').change(function () {
-var id = $('#region').val();
-$('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
-});
-});
+            $(document).ready(function () {
+                $('#region').change(function () {
+                    var id = $('#region').val();
+                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                });
+            });
     </script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -424,12 +424,12 @@ $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
     <!-- Jquery Validate -->
     <script src="../js/plugins/validate/jquery.validate.min.js"></script>
     <script type="text/javascript">
-$(document).ready(function () {
-$('#region').change(function () {
-var id = $('#region').val();
-$('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
-});
-});
+            $(document).ready(function () {
+                $('#region').change(function () {
+                    var id = $('#region').val();
+                    $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
+                });
+            });
     </script>
     <script>
         $(document).ready(function () {
