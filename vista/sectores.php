@@ -274,61 +274,137 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                     </div>
                                 </div>
                                 <div class="ibox-content">
-                                    <form method="get" action="" class="form-horizontal">
-                                        
-                                        
-                                        <div class="form-group"><label class="col-sm-2 control-label">Codigo Sector</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtCod" > 
-                                                <span class="help-block m-b-none">Asigne un Codigo para el sector</span>
+                                    
+
+                                        <?php
+                                        if (isset($_GET['cod'])) {
+                                            echo"<form method='post' action='../controlador/ControEditarSectores.php' class='form-horizontal'>";
+                                            echo"<div class='form-group'><label class='col-sm-2 control-label'>Codigo Sector</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtCod' value='".$_GET['cod']."' readonly > 
+                                                <span class='help-block m-b-none'>Asigne un Codigo para el sector</span>
                                             </div>
                                         </div>
-                                        <div class="hr-line-dashed"></div>
+                                        <div class='hr-line-dashed'></div>
                                         
-                                        <div class="form-group"><label class="col-sm-2 control-label">Nombre del Sector</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtNombre" > 
-                                                <span class="help-block m-b-none">Asigne un Nombre para el sector</span>
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Nombre del Sector</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNombre' value='".$_GET['nombre']."' > 
+                                                <span class='help-block m-b-none'>Asigne un Nuevo Nombre para el sector</span>
                                             </div>
                                         </div>
-                                        <div class="hr-line-dashed"></div>
+                                        <div class='hr-line-dashed'></div>
                                         
-                                        <div class="form-group"><label class="col-sm-2 control-label">Norte</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtNorte" > 
-                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante norte</span>
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Norte</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNorte' value='".$_GET['calleN']."' > 
+                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante norte</span>
                                             </div>
                                         </div>
-                                        <div class="hr-line-dashed"></div>
+                                        <div class='hr-line-dashed'></div>
                                         
                                          
-                                        <div class="form-group"><label class="col-sm-2 control-label">Oeste</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtOeste" > 
-                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante Oeste</span>
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Oeste</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtOeste' value='".$_GET['calleO']."' > 
+                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante Oeste</span>
                                             </div>
                                         </div>
-                                        <div class="hr-line-dashed"></div>
+                                        <div class='hr-line-dashed'></div>
                                         
                                          
-                                        <div class="form-group"><label class="col-sm-2 control-label">Sur</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtSur" > 
-                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante Sur</span>
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Sur</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtSur' value='".$_GET['calleS']."' > 
+                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante Sur</span>
                                             </div>
                                         </div>
-                                        <div class="hr-line-dashed"></div>
+                                        <div class='hr-line-dashed'></div>
                                         
                                          
-                                        <div class="form-group"><label class="col-sm-2 control-label">Este</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtEste" > 
-                                                <span class="help-block m-b-none">Asigne un nombre de la calle liminante Este</span>
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Este</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtEste' value='".$_GET['calleE']."' > 
+                                                <span class='help-block m-b-none'>Asigne un Nuevo  nombre de la calle liminante Este</span>
                                             </div>
                                         </div>
-                                        <div class="hr-line-dashed"></div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Color</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtColor' value='".$_GET['color']."' > 
+                                                <span class='help-block m-b-none'>ingrese un Nuevo  color Para el Sector</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
                                         
                                            
-                                        <div class="form-group"><label class="col-sm-2 control-label">Descripcion</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control required" name="txtDescripcion" > 
-                                                <span class="help-block m-b-none">Descripcion del Sector</span>
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Descripcion</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtDescripcion' value='".$_GET['descripcion']."'> 
+                                                <span class='help-block m-b-none'>Descripcion del Sector</span>
                                             </div>
                                         </div>
-                                        <div class="hr-line-dashed"></div>
+                                        <div class='hr-line-dashed'></div>";
+                                        }
+                                        
+                                        else
+                                            
+                                        {
+                                            echo"<form method='post' action='../controlador/ControAgregarSectores.php' class='form-horizontal'>";
+                                            echo"<div class='form-group'><label class='col-sm-2 control-label'>Codigo Sector</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtCod' > 
+                                                <span class='help-block m-b-none'>Asigne un Codigo para el sector</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Nombre del Sector</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNombre' > 
+                                                <span class='help-block m-b-none'>Asigne un Nombre para el sector</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Norte</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtNorte' > 
+                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante norte</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                         
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Oeste</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtOeste' > 
+                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante Oeste</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                         
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Sur</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtSur' > 
+                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante Sur</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                         
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Este</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtEste' > 
+                                                <span class='help-block m-b-none'>Asigne un nombre de la calle liminante Este</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Color</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtColor' > 
+                                                <span class='help-block m-b-none'>ingrese un color Para el Sector</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>
+                                        
+                                           
+                                        <div class='form-group'><label class='col-sm-2 control-label'>Descripcion</label>
+                                            <div class='col-sm-10'><input type='text' class='form-control required' name='txtDescripcion' > 
+                                                <span class='help-block m-b-none'>Descripcion del Sector</span>
+                                            </div>
+                                        </div>
+                                        <div class='hr-line-dashed'></div>";
+                                        }
+                                        ?>
 
 
 
@@ -343,152 +419,173 @@ $estamentoUsuario = $_SESSION["estamUser"];
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-10">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Lista de Usuarios </h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <?php
+                                require_once '../modelo/Data.php';
+                                $d = new Data();
+                                $d->listaSectores();
+                                ?>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+
 
             </div>
         </div>
 
-    
 
 
 
 
-    <script src = "../js/ajax.js"></script>
 
-    <!-- Mainly scripts -->
-    <script src="../js/jquery-2.1.1.js"></script>
+        <script src = "../js/ajax.js"></script>
 
-    <script type="text/javascript">
+        <!-- Mainly scripts -->
+        <script src="../js/jquery-2.1.1.js"></script>
+
+        <script type="text/javascript">
             $(document).ready(function () {
                 $('#region').change(function () {
                     var id = $('#region').val();
                     $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
                 });
             });
-    </script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        </script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Data Tables -->
-    <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="../js/plugins/dataTables/dataTables.responsive.js"></script>
-    <script src="../js/plugins/dataTables/dataTables.tableTools.min.js"></script>
-    <!-- Steps -->
-    <script src="../js/plugins/staps/jquery.steps.min.js"></script>
+        <!-- Data Tables -->
+        <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+        <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+        <script src="../js/plugins/dataTables/dataTables.responsive.js"></script>
+        <script src="../js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+        <!-- Steps -->
+        <script src="../js/plugins/staps/jquery.steps.min.js"></script>
 
-    <!-- Jquery Validate -->
-    <script src="../js/plugins/validate/jquery.validate.min.js"></script>
-    <script type="text/javascript">
+        <!-- Jquery Validate -->
+        <script src="../js/plugins/validate/jquery.validate.min.js"></script>
+        <script type="text/javascript">
             $(document).ready(function () {
                 $('#region').change(function () {
                     var id = $('#region').val();
                     $('#comunas').load('../controlador/ControElegirComuna.php?id=' + id);
                 });
             });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $(".chosen").chosen();
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('#data_1 .input-group.date').datepicker({
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
-                autoclose: true
+        </script>
+        <script>
+            $(document).ready(function () {
+                $(".chosen").chosen();
             });
-        });
-    </script>
+        </script>
 
-    <script>
-        $(document).ready(function () {
-            $('.dataTables-example').dataTable({
-                //                    responsive: true,
-                //                    "dom": 'T<"clear">lfrtip',
-                //                    "tableTools": {
-                //                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
-                //                    },
-                language: {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
+        <script>
+            $(document).ready(function () {
+                $('#data_1 .input-group.date').datepicker({
+                    todayBtn: "linked",
+                    keyboardNavigation: false,
+                    forceParse: false,
+                    calendarWeeks: true,
+                    autoclose: true
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $('.dataTables-example').dataTable({
+                    responsive: true,
+                    //                    "dom": 'T<"clear">lfrtip',
+                    //                    "tableTools": {
+                    //                       "sSwfPath": "../js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                    //                    },
+                    language: {
+                        "sProcessing": "Procesando...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Buscar:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        }
+
+
                     }
 
-
-                }
-
+                });
             });
-        });
-    </script>
+        </script>
 
-    <!-- Flot -->
-    <script src="../js/plugins/flot/jquery.flot.js"></script>
-    <script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="../js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="../js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="../js/plugins/flot/jquery.flot.pie.js"></script>
+        <!-- Flot -->
+        <script src="../js/plugins/flot/jquery.flot.js"></script>
+        <script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="../js/plugins/flot/jquery.flot.spline.js"></script>
+        <script src="../js/plugins/flot/jquery.flot.resize.js"></script>
+        <script src="../js/plugins/flot/jquery.flot.pie.js"></script>
 
-    <!-- Peity -->
-    <script src="../js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="../js/demo/peity-demo.js"></script>
+        <!-- Peity -->
+        <script src="../js/plugins/peity/jquery.peity.min.js"></script>
+        <script src="../js/demo/peity-demo.js"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="../js/inspinia.js"></script>
-    <script src="../js/plugins/pace/pace.min.js"></script>
+        <!-- Custom and plugin javascript -->
+        <script src="../js/inspinia.js"></script>
+        <script src="../js/plugins/pace/pace.min.js"></script>
 
-    <!-- jQuery UI -->
-    <script src="../js/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- jQuery UI -->
+        <script src="../js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-    <!-- GITTER -->
-    <script src="../js/plugins/gritter/jquery.gritter.min.js"></script>
+        <!-- GITTER -->
+        <script src="../js/plugins/gritter/jquery.gritter.min.js"></script>
 
-    <!-- Sparkline -->
-    <script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
+        <!-- Sparkline -->
+        <script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
-    <!-- Sparkline demo data  -->
-    <script src="../js/demo/sparkline-demo.js"></script>
+        <!-- Sparkline demo data  -->
+        <script src="../js/demo/sparkline-demo.js"></script>
 
-    <!-- ChartJS-->
-    <script src="../js/plugins/chartJs/Chart.min.js"></script>
+        <!-- ChartJS-->
+        <script src="../js/plugins/chartJs/Chart.min.js"></script>
 
-    <!-- Toastr -->
-    <script src="../js/plugins/toastr/toastr.min.js"></script>
+        <!-- Toastr -->
+        <script src="../js/plugins/toastr/toastr.min.js"></script>
 
-    <!-- Input Mask-->
-    <script src="../js/plugins/jasny/jasny-bootstrap.min.js"></script>
+        <!-- Input Mask-->
+        <script src="../js/plugins/jasny/jasny-bootstrap.min.js"></script>
 
-    <!-- Switchery -->
-    <script src="../js/plugins/switchery/switchery.js"></script>
+        <!-- Switchery -->
+        <script src="../js/plugins/switchery/switchery.js"></script>
 
-    <script src="../js/ajax.js"></script>
-    <!-- Chosen -->
-    <script src="../js/plugins/chosen/chosen.jquery.js"></script>
+        <script src="../js/ajax.js"></script>
+        <!-- Chosen -->
+        <script src="../js/plugins/chosen/chosen.jquery.js"></script>
 
-    <!-- Data picker -->
-    <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
-
+        <!-- Data picker -->
+        <script src="../js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
 
-</body>
+
+    </body>
 </html>

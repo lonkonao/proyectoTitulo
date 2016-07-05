@@ -14,4 +14,4 @@ $color = $_POST['txtColor'];
 $descripcion = $_POST['txtDescripcion'];
 
 
-$d->insertSectores($cod, $nombre, $calle_n, $calle_o, $calle_s, $calle_e, $color, $descripcion);
+$d->upSectores($cod, $nombre, $calle_n, $calle_o, $calle_s, $calle_e, $color, $descripcion);

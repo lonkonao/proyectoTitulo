@@ -512,6 +512,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
         <script>
             $(document).ready(function () {
                 $('.dataTables-example').dataTable({
+                    responsive: true,
 //                    responsive: true,
 //                    "dom": 'T<"clear">lfrtip',
 //                    "tableTools": {
