@@ -546,11 +546,11 @@ switch ($estamento) {
     }
 
     public function comboInstitucionFiltro($filtro) {
-        $sql = "select id, nombre from us_institucion ";
+        $sql = "select id, nombre from us_institucion where nombre = '".$filtro."' ";
 
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
-        echo "<select id='region' name='institucion' class='form-control m-b' disabled>";
+        echo "<select id='region' name='institucion' class='form-control m-b' >";
         while ($resultado = $res->fetch_array()) {
             if ($filtro == $resultado[1]) {
                 echo "<option value='" . $resultado[0] . "' selected> " . $resultado[1] . "</option>";
@@ -560,7 +560,6 @@ switch ($estamento) {
         }
         echo "</select>";
     }
-
     public function comboRegionFiltro($id) {
         $sql = "select c.codigoInterno,c.nombre from comunas c , regiones r where c.padre = r.codigo and  r.codigo = " . $id;
 

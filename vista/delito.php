@@ -121,7 +121,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 echo"                        <li> ";
                                 echo"                            <a href='#'><em class='fa fa-cog'></em> <span class='nav-label'>Administracion Portal</span> <span class='fa arrow'></span></a> ";
                                 echo"                            <ul class='nav nav-second-level'>";
-                                echo"                                <li><a href='#'><i class='fa fa-user'></i> Usuarios</a></li>";
+                                echo"                                <li><a href='usuarios.php'><i class='fa fa-user'></i> Usuarios</a></li>";
                                 echo"                                <li><a href='sectores.php'><i class='fa fa-map-marker' aria-hidden='true'></i> Sectores</a></li>";
 
                                 echo"                            </ul>";
@@ -397,7 +397,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Asociacion Delincuente y <small> Delitos.</small></h5>
+                                    <h5>Asociacion <small> Delincuente y  Delitos.</small></h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
