@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <?php
+<?php
     include_once './controlador/ControSeguridad.php';
 
     $userUsuario = $_SESSION["nombreUser"];
@@ -11,7 +9,9 @@
     $estadoUsuario = $_SESSION["estadoUser"];
     $estamentoUsuario = $_SESSION["estamUser"];
     ?>
-
+<!DOCTYPE html>
+<html>
+    
     <head>
 
         <meta charset="utf-8">

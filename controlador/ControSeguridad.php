@@ -7,7 +7,7 @@ header("Location: http://gcrinformatica.cl/prevcrim");
 //salimos de este script
 exit();
 
-}elseif ($_SESSION["estadoUser"]!=2) {
+}elseif ($_SESSION["estadoUser"]==1) {
     header("Location: http://gcrinformatica.cl/prevcrim");
     exit();
 }

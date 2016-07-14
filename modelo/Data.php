@@ -186,7 +186,7 @@ class Data {
     }
     
     public function listaHistorial() {
-        $sql = "select h.rut_delincuente,d.nombre,d.apellidoP,d.apellidoM,h.direccion,c.nombre,r.nombre,s.nombre from historialubicaciones h, dl_delincuente d,comunas c, regiones r,conf_sector s where s.cod = h.sector and r.codigo = h.region and c.codigointerno = h.comuna and d.rut = h.rut_delincuente";
+        $sql = "select h.rut_delincuente,d.nombre,d.apellidoP,d.apellidoM,h.direccion,c.nombre,r.nombre,s.nombre from historialubicaciones h, dl_delincuente d,comunas c, regiones r,conf_sector s where s.cod = h.sector and r.codigo = h.region and c.codigointerno = h.comuna and d.rut = h.rut_delincuente ";
         $tildes = $this->c->ejecutar("SET NAMES 'utf8'");
         $res = $this->c->ejecutar($sql);
         echo" <table class='table table-striped table-bordered table-hover table-responsive dataTables-example'>";

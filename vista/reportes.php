@@ -299,8 +299,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 </div>
                                 <div class="ibox-content">
                                     <?php
-                                    require_once '../modelo/Data.php';
-                                    $d = new Data();
+                                    
 
                                     $d->listaHistorial();
                                     ?>
@@ -320,8 +319,7 @@ $estamentoUsuario = $_SESSION["estamUser"];
                                 </div>
                                 <div class="ibox-content">
                                     <?php
-                                    require_once '../modelo/Data.php';
-                                    $d = new Data();
+                                   
 
                                     $d->listaParentesco2();
                                     ?>
